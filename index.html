@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name's Personal Webpage</title>
+    <title>Tumelo</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,6 +14,9 @@
         }
         header {
             background: #007BFF;
+		background-image: url('web.jpg'); /* Background photo */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background */
             color: white;
             padding: 20px;
             text-align: center;
@@ -22,6 +25,8 @@
         }
 
 	header img {
+		background: rgba(0, 123, 255, 0.8); /* Semi-transparent background */
+            	color: white;
     		width: 60px; /* Smaller size */
     		height: auto; /* Maintains aspect ratio */
     		border-radius: 50%; /* Optional: makes the image circular */
@@ -30,13 +35,15 @@
         section {
             margin: 20px 0;
             padding: 20px;
-            background: white;
+	background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+           
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         h1, h2 {
             margin: 0;
             font-family: 'Georgia', serif;
+		background-colour: black;
         }
         h2 {
             color: black;
@@ -54,6 +61,15 @@
             margin-top: 20px;
             font-size: 0.9em;
             color: #666;
+        }
+
+	.social-media a {
+            color: #007BFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .social-media a:hover {
+            text-decoration: underline;
         }
         a {
             color: #007BFF;
@@ -104,6 +120,12 @@
 
 <footer>
     <p>&copy; 2024 Tumelo Jack dibate. All rights reserved.</p>
+	<div class="social-media">
+        <a href="https://facebook.com/yourprofile" target="_blank">Facebook</a> |
+        <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a> |
+        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+        <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
+    </div>
 </footer>
 
 </body>
