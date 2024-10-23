@@ -16,7 +16,7 @@
         }
         header {
             background: black; /* Background color set to black */
-	    background: black(255, 255, 255, 0.9);
+	        background: rgba(255, 255, 255, 0.9);
             color: white;
             padding: 20px;
             text-align: center;
@@ -40,29 +40,29 @@
             margin: 0;
             font-family: 'Georgia', serif;
         }
-	.social-icons a {
- 	 margin: 0 10px;  /* Add space between icons */
-	}
+	    .social-icons a {
+ 	        margin: 0 10px;  /* Add space between icons */
+	    }
 
-	.social-icons img {
- 	 width: 32px;  /* Adjust the icon size */
-  	height: auto;
-  	transition: transform 0.3s ease; /* Optional hover effect */
-	}
+	    .social-icons img {
+ 	        width: 32px;  /* Adjust the icon size */
+  	        height: auto;
+  	        transition: transform 0.3s ease; /* Optional hover effect */
+	    }
 
-	.social-icons img:hover {
-  	transform: scale(1.2); /* Scale up on hover */
-	}
+	    .social-icons img:hover {
+  	        transform: scale(1.2); /* Scale up on hover */
+	    }
 
         h2 {
             color: black;
             margin-top: 20px;
         }
-	h2 a:hover{
-		text-decoration: underline;
-	}
+        h2 a:hover{
+            text-decoration: underline;
+        }
         ul {
-        list-style-type: tick;
+            list-style-type: tick;
             padding: 0;
         }
         ul li {
@@ -89,20 +89,41 @@
         a:hover {
             text-decoration: underline;
         }
-	script{
-	background-colour: white;
-	text-decoration: bold;
-	}
-	script a:hover{
-		text-decoration: underline;
-	}
+
+        /* Time decoration and animation */
+        #datetime {
+            font-size: 1.5em;
+            color: #FF6347; /* Tomato color */
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s infinite;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Pulsing animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
 
 <header>
-
-	<a href=" https://tumelodibate.github.io/" title="Visit Tumelo Page">
+	<a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
         <img src="tumelo.png" alt="tumelo">
     </a>
     <h1>Tumelo Jack Dibate</h1>
@@ -110,19 +131,20 @@
 <img src="myphoto.jpg" alt="myphoto" style="width: 150px; height: auto;">
 <section>
     <h2><b>About Me</b></h2>
-    <h3><b>3rd Year Informatics Student | Aspiring Data Scientist| System Admin | Java Dev | Database Admin</b></h3>
+    <h3><b>3rd Year Informatics Student | Aspiring Data Scientist | System Admin | Java Dev | Database Admin</b></h3>
 
-<p>I am a passionate and dedicated 3rd-year Informatics student with a strong foundation in computer science, data analysis, and software development. Over the past few years, I've developed a broad range of technical skills and hands-on experience through various academic projects,  and self-initiated ventures.
+<p>I am a passionate and dedicated 3rd-year Informatics student with a strong foundation in computer science, data analysis, and software development. Over the past few years, I've developed a broad range of technical skills and hands-on experience through various academic projects and self-initiated ventures.
 
 <h2><b>Key Skills:</b></h2>
-<li><b>Programming Languages:</b> Proficient in, HTML, JS Python, Java, and SQL.</li>
+<li><b>Programming Languages:</b> Proficient in HTML, JS, Python, Java, and SQL.</li>
 <li><b>Data Analysis:</b> Strong knowledge of data cleaning, manipulation, and visualization using tools like Pandas, NumPy, and Matplotlib.</li>
 <li><b>Database Management:</b> Familiar with relational databases, including MySQL.</li>
 <li><b>Machine Learning:</b> Hands-on experience in building machine learning models using libraries such as Scikit-learn and TensorFlow.</li>
-<li>Web Development: Exposure to full-stack development, including HTML, CSS, JavaScript.</li>
-<li>Cloud Computing: Working knowledge of cloud platforms like AWS and Google Cloud.</li>
-<li>Version Control: Experienced with Git and GitHub for collaborative coding.</li>
-Achievements:
+<li><b>Web Development:</b> Exposure to full-stack development, including HTML, CSS, JavaScript.</li>
+<li><b>Cloud Computing:</b> Working knowledge of cloud platforms like AWS and Google Cloud.</li>
+<li><b>Version Control:</b> Experienced with Git and GitHub for collaborative coding.</li>
+
+<h2>Achievements:</h2>
 <li><b>Datathon 2024:</b> Led a team of five to participate in a university-wide hackathon, developing a machine learning-based recommendation system.</li>
 <li><b>Dean’s List:</b> Consistently achieved academic excellence, earning a spot on the Dean’s List for all semesters to date.</li>
 
@@ -134,9 +156,9 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
     <h2>Interests & Hobbies</h2>
     <ul>
         <li>Coding with different languages</li>
-        <li>Outdoors activities</li>
-	<li>Adventures</li>
-        <li>Reading blogs and travelling</li>
+        <li>Outdoor activities</li>
+	    <li>Adventures</li>
+        <li>Reading blogs and traveling</li>
         <li>Gaming and exploring</li>
     </ul>
 </section>
@@ -150,12 +172,9 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
         <li>Alt Email: stumzadibatet@gmail.com</li>
         <li>LinkedIn: <a href="https://www.linkedin.com/in/tumelo-dibate-406553162">Your LinkedIn</a></li>
         <li>Instagram: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
-	<li>Twitter: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
-	<li>Facebook: <a href="https://www.facebook.com/tumelo.jack.10/">@tumelo.jack.10/</a></li>
-	<li>GitHub: <a href="https://github.com/TumeloDibate">@YourTwitter</a></li>
-	<li>Shooting Stars: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
-	<li>Youtube: <a href="https://youtube.com/@TumeloJ">@YourTwitter</a></li>
-	<li>Discord: <a href="https://github.com/TumeloDibate">@YourTwitter</a></li>
+	    <li>Twitter: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
+	    <li>Facebook: <a href="https://www.facebook.com/tumelo.jack.10/">@tumelo.jack.10/</a></li>
+	    <li>GitHub: <a href="https://github.com/TumeloDibate">@YourGitHub</a></li>
     </ul>
 </section>
 
