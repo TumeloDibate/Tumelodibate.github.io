@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tumelo</title>
@@ -79,13 +78,13 @@
 
         h2 {
             color: black;
-            margin-top: 15px;
+            margin-top: 20px;
         }
         h2 a:hover{
             text-decoration: underline;
         }
         ul {
-            list-style-type: bullets;
+            list-style-type: tick;
             padding: 0;
         }
         ul li {
@@ -147,27 +146,12 @@
 
 <header>
 	<a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
-        <img src="tumelo.png" alt="tumelo" style="width: 80px; height: fit;>
+        <img src="tumelo.png" alt="tumelo">
     </a>
     <h1>Tumelo Jack Dibate</h1>
-
-		<script>
-    function updateDateTime() {
-        const now = new Date();
-        const dateTimeString = now.toLocaleString(); // Get the current date and time as a string
-        document.getElementById('datetime').textContent = dateTimeString;
-    }
-
-    // Call the function when the page loads
-    updateDateTime();
-
-    // Update the time every second
-    setInterval(updateDateTime, 1000);
-</script>
-
 </header>
 
-<img src="myphoto.jpg" alt="myphoto" style="width: 150px; height: fit;">
+<img src="myphoto.jpg" alt="myphoto" style="width: 150px; height: auto;">
 
 <section>
     <h2><b>About Me</b></h2>
@@ -186,7 +170,7 @@
 </section>
 
 <section>
-    <h2><b>Interests & Hobbies</b></h2>
+    <h2>Interests & Hobbies</h2>
     <ul>
         <li>Coding with different languages</li>
         <li>Outdoor activities</li>
@@ -197,17 +181,17 @@
 </section>
 
 <section>
-    <h2><b>Contact</b></h2>
+    <h2>Contact</h2>
     <p>If you'd like to reach out, feel free to connect with me on social media:</p>
     <ul>
-        <li><b>Email: </b>dibatets@gmail.com</li>
-        <li><b>School Email:</b> 217629055@tut4life.ac.za</li>
-        <li><b>Alt Email:</b> stumzadibatet@gmail.com</li>
-        <li><b>LinkedIn: </b><a href="https://www.linkedin.com/in/tumelo-dibate-406553162">Your LinkedIn</a></li>
-        <li><b>Instagram:</b> <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
-	    <li><b>Twitter: </b><a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
-	    <li><b>Facebook:</b> <a href="https://www.facebook.com/tumelo.jack.10/">@tumelo.jack.10/</a></li>
-	    <li><b>GitHub:</b> <a href="https://github.com/TumeloDibate">@YourGitHub</a></li>
+        <li>Email: dibatets@gmail.com</li>
+        <li>School Email: 217629055@tut4life.ac.za</li>
+        <li>Alt Email: stumzadibatet@gmail.com</li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/tumelo-dibate-406553162">Your LinkedIn</a></li>
+        <li>Instagram: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
+	    <li>Twitter: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
+	    <li>Facebook: <a href="https://www.facebook.com/tumelo.jack.10/">@tumelo.jack.10/</a></li>
+	    <li>GitHub: <a href="https://github.com/TumeloDibate">@YourGitHub</a></li>
     </ul>
 </section>
 
@@ -224,6 +208,20 @@
         <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"></a>
     </div>
 </footer>
+
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleString(); // Get the current date and time as a string
+        document.getElementById('datetime').textContent = dateTimeString;
+    }
+
+    // Call the function when the page loads
+    updateDateTime();
+
+    // Update the time every second
+    setInterval(updateDateTime, 1000);
+</script>
 
 </body>
 </html>
