@@ -151,6 +151,7 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
 
 <footer>
     <p>&copy; 2024 Tumelo Jack Dibate. All rights reserved.</p>
+    <p>Current Date and Time: <span id="datetime"></span></p>
     <div class="social-icons">
         <a href="https://discord.com" target="_icon"><img src="discord.webp" alt="Discord"></a>
         <a href="https://github.com" target="_icon"><img src="github.jpeg" alt="GitHub"></a>
@@ -159,9 +160,22 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
         <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
         <a href="https://whatsapp.com" target="_blank"><img src="whatsapp.jpeg" alt="WhatsApp"></a>
         <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"></a>
-	
     </div>
 </footer>
+
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleString(); // Get the current date and time as a string
+        document.getElementById('datetime').textContent = dateTimeString;
+    }
+
+    // Call the function when the page loads
+    updateDateTime();
+
+    // Update the time every second
+    setInterval(updateDateTime, 1000);
+</script>
 
 </body>
 </html>
