@@ -16,19 +16,40 @@
         }
         header {
             background: black; /* Background color set to black */
-	        background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.9);
             color: white;
             padding: 20px;
             text-align: center;
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Animation for the header image */
         header img {
             width: 80px; /* Smaller size */
             height: auto; /* Maintains aspect ratio */
-            border-radius: 80%; /* Makes the image circular */
+            border-radius: 50%; /* Makes the image circular */
             margin-bottom: 10px; /* Space between image and text */
+            transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
+            animation: floating 5s ease-in-out infinite; /* Continuous floating effect */
         }
+
+        /* Hover effect for the image */
+        header img:hover {
+            transform: scale(1.2) rotate(5deg); /* Slight scale-up and rotation on hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adding shadow on hover */
+        }
+
+        /* Keyframe animation for continuous floating effect */
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0); /* Start and end at the original position */
+            }
+            50% {
+                transform: translateY(-10px); /* Move image up by 10px at the halfway point */
+            }
+        }
+
         section {
             margin: 20px 0;
             padding: 20px;
@@ -36,6 +57,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
         h1, h2 {
             margin: 0;
             font-family: 'Georgia', serif;
@@ -128,28 +150,23 @@
     </a>
     <h1>Tumelo Jack Dibate</h1>
 </header>
+
 <img src="myphoto.jpg" alt="myphoto" style="width: 150px; height: auto;">
+
 <section>
     <h2><b>About Me</b></h2>
     <h3><b>3rd Year Informatics Student | Aspiring Data Scientist | System Admin | Java Dev | Database Admin</b></h3>
-
-<p>I am a passionate and dedicated 3rd-year Informatics student with a strong foundation in computer science, data analysis, and software development. Over the past few years, I've developed a broad range of technical skills and hands-on experience through various academic projects and self-initiated ventures.
-
-<h2><b>Key Skills:</b></h2>
-<li><b>Programming Languages:</b> Proficient in HTML, JS, Python, Java, and SQL.</li>
-<li><b>Data Analysis:</b> Strong knowledge of data cleaning, manipulation, and visualization using tools like Pandas, NumPy, and Matplotlib.</li>
-<li><b>Database Management:</b> Familiar with relational databases, including MySQL.</li>
-<li><b>Machine Learning:</b> Hands-on experience in building machine learning models using libraries such as Scikit-learn and TensorFlow.</li>
-<li><b>Web Development:</b> Exposure to full-stack development, including HTML, CSS, JavaScript.</li>
-<li><b>Cloud Computing:</b> Working knowledge of cloud platforms like AWS and Google Cloud.</li>
-<li><b>Version Control:</b> Experienced with Git and GitHub for collaborative coding.</li>
-
-<h2>Achievements:</h2>
-<li><b>Datathon 2024:</b> Led a team of five to participate in a university-wide hackathon, developing a machine learning-based recommendation system.</li>
-<li><b>Dean’s List:</b> Consistently achieved academic excellence, earning a spot on the Dean’s List for all semesters to date.</li>
-
-<h2><b>Future Goals:</b></h2>
-I am eager to deepen my expertise in data science, artificial intelligence, and cloud computing. My goal is to apply these skills to real-world challenges in industries like healthcare, finance, or technology.</p>
+    <p>I am a passionate and dedicated 3rd-year Informatics student with a strong foundation in computer science, data analysis, and software development. Over the past few years, I've developed a broad range of technical skills and hands-on experience through various academic projects and self-initiated ventures.</p>
+    <h2><b>Key Skills:</b></h2>
+    <ul>
+        <li><b>Programming Languages:</b> Proficient in HTML, JS, Python, Java, and SQL.</li>
+        <li><b>Data Analysis:</b> Strong knowledge of data cleaning, manipulation, and visualization using tools like Pandas, NumPy, and Matplotlib.</li>
+        <li><b>Database Management:</b> Familiar with relational databases, including MySQL.</li>
+        <li><b>Machine Learning:</b> Hands-on experience in building machine learning models using libraries such as Scikit-learn and TensorFlow.</li>
+        <li><b>Web Development:</b> Exposure to full-stack development, including HTML, CSS, JavaScript.</li>
+        <li><b>Cloud Computing:</b> Working knowledge of cloud platforms like AWS and Google Cloud.</li>
+        <li><b>Version Control:</b> Experienced with Git and GitHub for collaborative coding.</li>
+    </ul>
 </section>
 
 <section>
