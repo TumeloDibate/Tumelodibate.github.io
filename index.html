@@ -22,8 +22,9 @@
             text-align: center;
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Positioning context for the social icons */
         }
-        
+
         /* Animation for the header image */
         header img {
             width: 80px; /* Smaller size */
@@ -50,6 +51,31 @@
             }
         }
 
+        .header-top {
+            display: flex; /* Use flexbox to align items */
+            justify-content: space-between; /* Space between time and icons */
+            align-items: center; /* Center items vertically */
+            padding: 10px;
+        }
+
+        .social-icons {
+            display: flex; /* Use flexbox for social icons */
+        }
+
+        .social-icons a {
+            margin: 0 10px; /* Add space between icons */
+        }
+
+        .social-icons img {
+            width: 32px; /* Adjust the icon size */
+            height: auto;
+            transition: transform 0.3s ease; /* Optional hover effect */
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.2); /* Scale up on hover */
+        }
+
         section {
             margin: 20px 0;
             padding: 20px;
@@ -61,53 +87,49 @@
         h1, h2 {
             margin: 0;
             font-family: 'Georgia', serif;
+		colour: maroon;
         }
-	    .social-icons a {
- 	        margin: 0 10px;  /* Add space between icons */
-	    }
-
-	    .social-icons img {
- 	        width: 32px;  /* Adjust the icon size */
-  	        height: auto;
-  	        transition: transform 0.3s ease; /* Optional hover effect */
-	    }
-
-	    .social-icons img:hover {
-  	        transform: scale(1.2); /* Scale up on hover */
-	    }
 
         h2 {
             color: black;
             margin-top: 20px;
         }
-        h2 a:hover{
+
+        h2 a:hover {
             text-decoration: underline;
         }
+
         ul {
-            list-style-type: tick;
+            list-style-type: none; /* Remove default list styling */
             padding: 0;
         }
+
         ul li {
             margin: 10px 0;
         }
+
         footer {
             text-align: center;
             margin-top: 20px;
             font-size: 0.9em;
             color: #666;
         }
+
         .social-media a {
             color: #007BFF;
             text-decoration: none;
             margin: 0 10px;
         }
+
         .social-media a:hover {
             text-decoration: underline;
         }
+
         a {
             color: #007BFF;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
@@ -145,6 +167,18 @@
 <body>
 
 <header>
+    <div class="header-top">
+        <span id="datetime"></span>
+        <div class="social-icons">
+            <a href="https://discord.com" target="_icon"><img src="discord.webp" alt="Discord"></a>
+            <a href="https://github.com" target="_icon"><img src="github.jpeg" alt="GitHub"></a>
+            <a href="https://facebook.com" target="_blank"><img src="facebook.webp" alt="Facebook"></a>
+            <a href="https://twitter.com" target="_blank"><img src="twitter.jpeg" alt="Twitter"></a>
+            <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+            <a href="https://whatsapp.com" target="_blank"><img src="whatsapp.jpeg" alt="WhatsApp"></a>
+            <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"></a>
+        </div>
+    </div>
 	<a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
         <img src="tumelo.png" alt="tumelo">
     </a>
@@ -191,22 +225,14 @@
         <li>Instagram: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
 	    <li>Twitter: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
 	    <li>Facebook: <a href="https://www.facebook.com/tumelo.jack.10/">@tumelo.jack.10/</a></li>
-	    <li>GitHub: <a href="https://github.com/TumeloDibate">@YourGitHub</a></li>
+	    <li>GitHub: <a href="https://github.com/TumeloDibate">@YourTwitter</a></li>
+	    <li>YouTube: <a href="https://youtube.com/@TumeloJ">@YourTwitter</a></li>
+	    <li>Discord: <a href="https://github.com/TumeloDibate">@YourTwitter</a></li>
     </ul>
 </section>
 
 <footer>
     <p>&copy; 2024 Tumelo Jack Dibate. All rights reserved.</p>
-    <p>Current Date and Time: <span id="datetime"></span></p>
-    <div class="social-icons">
-        <a href="https://discord.com" target="_icon"><img src="discord.webp" alt="Discord"></a>
-        <a href="https://github.com" target="_icon"><img src="github.jpeg" alt="GitHub"></a>
-        <a href="https://facebook.com" target="_blank"><img src="facebook.webp" alt="Facebook"></a>
-        <a href="https://twitter.com" target="_blank"><img src="twitter.jpeg" alt="Twitter"></a>
-        <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
-        <a href="https://whatsapp.com" target="_blank"><img src="whatsapp.jpeg" alt="WhatsApp"></a>
-        <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"></a>
-    </div>
 </footer>
 
 <script>
