@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script>
-    function updateDateTime() {
-        const now = new Date();
-        const dateTimeString = now.toLocaleString(); // Get the current date and time as a string
-        document.getElementById('datetime').textContent = dateTimeString;
-    }
-
-    // Call the function when the page loads
-    updateDateTime();
-
-    // Update the time every second
-    setInterval(updateDateTime, 1000);
-</script>
-
+	
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tumelo</title>
@@ -163,6 +150,21 @@
         <img src="tumelo.png" alt="tumelo" style="width: 80px; height: fit;>
     </a>
     <h1>Tumelo Jack Dibate</h1>
+
+		<script>
+    function updateDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleString(); // Get the current date and time as a string
+        document.getElementById('datetime').textContent = dateTimeString;
+    }
+
+    // Call the function when the page loads
+    updateDateTime();
+
+    // Update the time every second
+    setInterval(updateDateTime, 1000);
+</script>
+
 </header>
 
 <img src="myphoto.jpg" alt="myphoto" style="width: 150px; height: fit;">
