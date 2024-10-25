@@ -7,171 +7,117 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-image: url('web.jpeg'); /* Background image */
-            background-size: cover; /* Cover the entire page */
-            background-position: center; /* Center the background */
+            background-image: url('web.jpeg');
+            background-size: cover;
+            background-position: center;
             margin: 0;
             padding: 20px;
             color: #333;
         }
         header {
-            background: black; /* Background color set to black */
             background: rgba(255, 255, 255, 0.9);
-            color: white;
+            color: black;
             padding: 20px;
             text-align: center;
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative; /* Positioning context for the social icons */
         }
-
-        /* Animation for the header image */
         header img {
-            width: 80px; /* Smaller size */
-            height: auto; /* Maintains aspect ratio */
-            border-radius: 50%; /* Makes the image circular */
-            margin-bottom: 10px; /* Space between image and text */
-            transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
-            animation: floating 5s ease-in-out infinite; /* Continuous floating effect */
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: floating 5s ease-in-out infinite;
         }
-
-        /* Hover effect for the image */
         header img:hover {
-            transform: scale(1.2) rotate(5deg); /* Slight scale-up and rotation on hover */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adding shadow on hover */
+            transform: scale(1.2) rotate(5deg);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-
-        /* Keyframe animation for continuous floating effect */
         @keyframes floating {
-            0%, 100% {
-                transform: translateY(0); /* Start and end at the original position */
-            }
-            50% {
-                transform: translateY(-10px); /* Move image up by 10px at the halfway point */
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-
         .header-top {
-            display: flex; /* Use flexbox to align items */
-            justify-content: space-between; /* Space between time and icons */
-            align-items: center; /* Center items vertically */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 10px;
         }
-
         .social-icons {
-            display: flex; /* Use flexbox for social icons */
+            display: flex;
         }
-
         .social-icons a {
-            margin: 0 10px; /* Add space between icons */
+            margin: 0 10px;
         }
-
         .social-icons img {
-            width: 32px; /* Adjust the icon size */
+            width: 32px;
             height: auto;
-            transition: transform 0.3s ease; /* Optional hover effect */
+            transition: transform 0.3s ease;
         }
-
         .social-icons img:hover {
-            transform: scale(1.2); /* Scale up on hover */
+            transform: scale(1.2);
         }
-
         section {
             margin: 20px 0;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-
         h1, h2 {
             margin: 0;
             font-family: 'Georgia', serif;
-		colour: red;
+            color: red;
         }
-
         h2 {
             color: black;
             margin-top: 20px;
         }
-
-        h2 a:hover {
-            text-decoration: underline;
-        }
-
         ul {
-            list-style-type: none; /* Remove default list styling */
+            list-style-type: none;
             padding: 0;
         }
-
         ul li {
             margin: 10px 0;
         }
-
         footer {
             text-align: center;
             margin-top: 20px;
             font-size: 0.9em;
             color: red;
         }
-
-        .social-media a {
-            color: #007BFF;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .social-media a:hover {
-            text-decoration: underline;
-        }
-
         a {
             color: #007BFF;
             text-decoration: none;
         }
-
         a:hover {
             text-decoration: underline;
         }
-
-        /* Time decoration and animation */
         #datetime {
             font-size: 1.0em;
-            color: #FF6347; /* Tomato color */
+            color: #FF6347;
             font-weight: bold;
-            background-color: rgbd(white);
             padding: 10px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             animation: pulse 30s infinite;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
-
-        /* Pulsing animation */
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
 <body>
-
 <header>
     <div class="header-top">
         <span id="datetime"></span>
         <div class="social-icons">
-            <a href="https://discord.com" target="_icon"><img src="discord.webp" alt="Discord"></a>
-            <a href="https://github.com" target="_icon"><img src="github.jpeg" alt="GitHub"></a>
+            <a href="https://discord.com" target="_blank"><img src="discord.webp" alt="Discord"></a>
+            <a href="https://github.com" target="_blank"><img src="github.jpeg" alt="GitHub"></a>
             <a href="https://facebook.com" target="_blank"><img src="facebook.webp" alt="Facebook"></a>
             <a href="https://twitter.com" target="_blank"><img src="twitter.jpeg" alt="Twitter"></a>
             <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
@@ -179,7 +125,7 @@
             <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"></a>
         </div>
     </div>
-	<a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
+    <a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
         <img src="tumelo.png" alt="tumelo">
     </a>
     <h1>Tumelo Jack Dibate</h1>
@@ -208,7 +154,7 @@
     <ul>
         <li>Coding with different languages</li>
         <li>Outdoor activities</li>
-	    <li>Adventures</li>
+        <li>Adventures</li>
         <li>Reading blogs and traveling</li>
         <li>Gaming and exploring</li>
     </ul>
@@ -223,11 +169,11 @@
         <li>Alt Email: stumzadibatet@gmail.com</li>
         <li>LinkedIn: <a href="https://www.linkedin.com/in/tumelo-dibate-406553162">Your LinkedIn</a></li>
         <li>Instagram: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
-	    <li>Twitter: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
-	    <li>Facebook: <a href="https://www.facebook.com/tumelo.jack.10/">@tumelo.jack.10/</a></li>
-	    <li>GitHub: <a href="https://github.com/TumeloDibate">@YourTwitter</a></li>
-	    <li>YouTube: <a href="https://youtube.com/@TumeloJ">@YourTwitter</a></li>
-	    <li>Discord: <a href="https://github.com/TumeloDibate">@YourTwitter</a></li>
+        <li>Twitter: <a href="https://twitter.com/yourprofile">@YourTwitter</a></li>
+        <li>Facebook: <a href="https://www.facebook.com/tumelo.jack.10/">@tumelo.jack.10/</a></li>
+        <li>GitHub: <a href="https://github.com/TumeloDibate">@YourTwitter</a></li>
+        <li>YouTube: <a href="https://youtube.com/@TumeloJ">@YourTwitter</a></li>
+        <li>Discord: <a href="https://github.com/TumeloDibate">@YourTwitter</a></li>
     </ul>
 </section>
 
@@ -238,14 +184,10 @@
 <script>
     function updateDateTime() {
         const now = new Date();
-        const dateTimeString = now.toLocaleString(); // Get the current date and time as a string
+        const dateTimeString = now.toLocaleString();
         document.getElementById('datetime').textContent = dateTimeString;
     }
-
-    // Call the function when the page loads
     updateDateTime();
-
-    // Update the time every second
     setInterval(updateDateTime, 1000);
 </script>
 
