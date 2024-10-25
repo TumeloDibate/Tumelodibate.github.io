@@ -44,10 +44,9 @@
         }
         .header-top {
             display: flex;
-            justify-content: center; /* Centered for mobile */
+            justify-content: space-between; /* Space between time and date */
             align-items: center;
             padding: 10px 0; /* Adjusted padding for mobile */
-            flex-wrap: wrap; /* Allow items to wrap */
         }
         .social-icons {
             display: flex;
@@ -137,7 +136,8 @@
 <body>
 <header>
     <div class="header-top">
-        <span id="datetime"></span>
+        <span id="time"></span>
+        <span id="date"></span>
         <div class="social-icons">
             <a href="https://discord.com" target="_blank"><img src="discord.webp" alt="Discord"></a>
             <a href="https://github.com" target="_blank"><img src="github.jpeg" alt="GitHub"></a>
@@ -212,17 +212,17 @@
         </thead>
         <tbody>
             <tr>
-                <td>John Doe</td>
+                <td>Memani Vuyisile</td>
                 <td>Great skills in programming!</td>
                 <td>2024-10-01</td>
             </tr>
             <tr>
-                <td>Jane Smith</td>
+                <td>Poopedi Thato</td>
                 <td>Amazing data analysis techniques!</td>
                 <td>2024-10-02</td>
             </tr>
             <tr>
-                <td>Michael Lee</td>
+                <td>GitHub Communicate</td>
                 <td>Impressive projects, keep it up!</td>
                 <td>2024-10-03</td>
             </tr>
@@ -238,8 +238,14 @@
 <script>
     function updateDateTime() {
         const now = new Date();
-        const dateTimeString = now.toLocaleString();
-        document.getElementById('datetime').textContent = dateTimeString;
+        const optionsDate = { day: 'numeric', month: 'long', year: 'numeric' };
+        const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+
+        const formattedDate = now.toLocaleDateString('en-GB', optionsDate);
+        const formattedTime = now.toLocaleTimeString('en-GB', optionsTime);
+
+        document.getElementById('date').textContent = formattedDate;
+        document.getElementById('time').textContent = formattedTime;
     }
     updateDateTime();
     setInterval(updateDateTime, 1000);
