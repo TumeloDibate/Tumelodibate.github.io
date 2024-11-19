@@ -46,7 +46,7 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* Hamburger menu styles */
+        /* Hamburger Menu Styles */
         .hamburger-menu {
             display: none;
             flex-direction: column;
@@ -57,11 +57,10 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: fixed;
-            top: 10px;
+            top: 40px;
             left: 10px;
             z-index: 1000;
             width: 200px;
-            padding: 10px;
         }
 
         .hamburger-menu button {
@@ -81,6 +80,48 @@
 
         .hamburger-menu.active {
             display: flex;
+        }
+
+        /* Hamburger Button (Icon) */
+        .hamburger-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #e67e22;
+            color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            background: #e67e22;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .social-icons a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .social-icons a:hover {
+            background: #d35400;
         }
 
         /* Section Styles */
@@ -132,63 +173,21 @@
                 display: flex;
             }
         }
-
-        /* Chat Box Styles */
-        .chat-box {
-            border: 2px solid #e67e22;
-            padding: 10px;
-            width: 100%;
-            max-width: 400px;
-            margin-top: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .chat-box textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            resize: vertical;
-        }
-
-        .chat-box button {
-            background-color: #e67e22;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .chat-box button:hover {
-            background-color: #d35400;
-        }
-
     </style>
 </head>
 <body>
 <header>
-    <div class="social-icons">
-        <a href="https://discord.com" target="_blank"><img src="discord.webp" alt="Discord"></a>
-        <a href="https://github.com" target="_blank"><img src="github.jpeg" alt="GitHub"></a>
-        <a href="https://facebook.com" target="_blank"><img src="facebook.webp" alt="Facebook"></a>
-        <a href="https://twitter.com" target="_blank"><img src="twitter.jpeg" alt="Twitter"></a>
-        <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a>
-        <a href="https://whatsapp.com" target="_blank"><img src="whatsapp.jpeg" alt="WhatsApp"></a>
-        <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"></a>
-    </div>
+    <div id="current-time"></div> <!-- Live date and time -->
     <h1>Tumelo Jack Dibate</h1>
     <a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
         <img src="tumelo.png" alt="Tumelo Logo">
     </a>
-    <div id="current-time"></div>
 </header>
 
-<!-- Hamburger Menu Toggle Button -->
+<!-- Hamburger Menu Button (Toggle) -->
+<button class="hamburger-button" onclick="toggleHamburgerMenu()">☰</button>
+
+<!-- Hamburger Menu -->
 <div class="hamburger-menu" id="hamburger-menu">
     <button onclick="showSection('home')">Home</button>
     <button onclick="showSection('about')">About Me</button>
@@ -198,6 +197,17 @@
     <button onclick="showSection('contact')">Contact</button>
     <button onclick="showSection('visitor')">Visitor Recommendations</button>
     <button onclick="showSection('accolades')">Accolades & Awards</button>
+
+    <!-- Social Media Links -->
+    <div class="social-icons">
+        <a href="https://discord.com" target="_blank"><img src="discord.webp" alt="Discord"> Discord</a>
+        <a href="https://github.com" target="_blank"><img src="github.jpeg" alt="GitHub"> GitHub</a>
+        <a href="https://facebook.com" target="_blank"><img src="facebook.webp" alt="Facebook"> Facebook</a>
+        <a href="https://twitter.com" target="_blank"><img src="twitter.jpeg" alt="Twitter"> Twitter</a>
+        <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"> Instagram</a>
+        <a href="https://whatsapp.com" target="_blank"><img src="whatsapp.jpeg" alt="WhatsApp"> WhatsApp</a>
+        <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"> LinkedIn</a>
+    </div>
 </div>
 
 <!-- Sections -->
