@@ -67,6 +67,22 @@
 		display: Grid;
 		    
 	    }
+	.interests{
+		width: 200px;
+            height: auto;
+            border-radius: 40%;
+            margin-bottom: 20px;
+            border: 5px solid #e67e22;
+		display: Grid;    
+	    }
+	.projects{
+	    width: 200px;
+            height: auto;
+            border-radius: 40%;
+            margin-bottom: 20px;
+            border: 5px solid #e67e22;
+		display: Grid;  
+	}
         /* Introduction Section */
         .intro-section {
             display: flex;
@@ -115,8 +131,8 @@
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 40px;
+            position: flex;
+            top: 30px;
             left: 10px;
             z-index: 1000;
             width: 200px;
@@ -174,9 +190,10 @@
         }
 
         .social-icons a img {
-            width: 20px;
-            height: 20px;
+            width: 10px;
+            height: 15px;
             margin-right: 10px;
+		border-radius: 10px;
         }
 
         .social-icons a:hover {
@@ -250,7 +267,7 @@
 
 <header>
     <div id="current-time"></div> <!-- Live date and time -->
-    <h1>My Website Portfilio</h1>
+    <h1><b>My Website Portfolio</b></h1>
     <a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
         <img src="tumelo.png" alt="Tumelo Logo">
     </a>
@@ -266,23 +283,16 @@
 <div class="hamburger-menu" id="hamburger-menu">
     <button onclick="showSection('home')">Home</button>
     <button onclick="showSection('about')">About Me</button>
+	<button onclick="showSection('projects')">Projects</button>
     <button onclick="showSection('interests')">Interests & Hobbies</button>
-    <button onclick="showSection('projects')">Projects</button>
+    
     <button onclick="showSection('certificates')">Certificates</button>
-    <button onclick="showSection('contact')">Contact</button>
+    
     <button onclick="showSection('visitor')">Visitor Recommendations</button>
     <button onclick="showSection('accolades')">Accolades & Awards</button>
-
+	<button onclick="showSection('contact')">Contact</button>
     <!-- Social Media Links -->
-    <div class="social-icons">
-        <a href="https://discord.com" target="_blank"><img src="discord.webp" alt="Discord"> Discord</a>
-        <a href="https://github.com" target="_blank"><img src="github.jpeg" alt="GitHub"> GitHub</a>
-        <a href="https://facebook.com" target="_blank"><img src="facebook.webp" alt="Facebook"> Facebook</a>
-        <a href="https://twitter.com" target="_blank"><img src="twitter.jpeg" alt="Twitter"> Twitter</a>
-        <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"> Instagram</a>
-        <a href="https://whatsapp.com" target="_blank"><img src="whatsapp.jpeg" alt="WhatsApp"> WhatsApp</a>
-        <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"> LinkedIn</a>
-    </div>
+    
 </div>
 
 <!-- Sections -->
@@ -292,7 +302,7 @@
 	<section class="intro-section">
     <img src="myphoto.jpg" alt="Tumelo Jack Dibate Photo">
     <h2> </h2>
-    <p><i>Welcome to my personal portfolio! Navigate menu bar to explore the sections to learn more about me. </i></p>
+    <p><i><b>Welcome to my personal portfolio!</b><br> Navigate menu bar to explore the sections to learn more about me. </i></p>
 </section>
 </section>
 
@@ -311,16 +321,16 @@ Key Skills:
 <li>Machine Learning: Hands-on experience in building machine learning models using libraries such as Scikit-learn and TensorFlow.</li>
 <li>Web Development: Exposure to full-stack development, including HTML, CSS, JavaScript.</li>
 <li>Cloud Computing: Working knowledge of cloud platforms like AWS and Google Cloud.</li>
-<li>Version Control: Experienced with Git and GitHub for collaborative coding.</li>
+<li>Version Control: Experienced with Git and GitHub for collaborative coding.</li><br>
 Achievements:
 Datathon 2024: Led a team of five to participate in a university-wide hackathon, developing a machine learning-based recommendation system.
 Dean’s List: Consistently achieved academic excellence, earning a spot on the Dean’s List for all semesters to date.
 </ul><br>
 <b>Future Goals:</b>
 I am eager to deepen my expertise in data science, artificial intelligence, and cloud computing. My goal is to apply these skills to real-world challenges in industries like healthcare, finance, or technology.</p><br>
-	<img src="tot1.png" alt="Tumelo Logo">
+	
 	<img src="tot2.jpg" alt="Tumelo Logo">
-	<img src="tot3.jpg" alt="Tumelo Logo">
+	
 </section>
 
 <section id="interests">
@@ -331,6 +341,7 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
 	<li>Music</li>
 	<li>Reading</li>
     </ul>
+	<img src="tot1.png" alt="Tumelo Logo">
 </section>
 
 <section id="projects">
@@ -347,6 +358,7 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
         <li>Project 2: Personal Website Services</li>
         <li>Project 3: Matric APS Calculator</li>
     </ul>
+	<img src="tot3.jpg" alt="Tumelo Logo">
 </section>
 
 <section id="certificates">
@@ -409,6 +421,15 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
 	<li>School Email: 217629055@tut4life.ac.za</li>
         <li>Alt Email: stumzadibate@gmail.com</li>
     </ul>
+	<div class="social-icons">
+        <a href="https://discord.com" target="_blank"><img src="discord.webp" alt="Discord"> Discord</a>
+        <a href="https://github.com" target="_blank"><img src="github.jpeg" alt="GitHub"> GitHub</a>
+        <a href="https://facebook.com" target="_blank"><img src="facebook.webp" alt="Facebook"> Facebook</a>
+        <a href="https://twitter.com" target="_blank"><img src="twitter.jpeg" alt="Twitter"> Twitter</a>
+        <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"> Instagram</a>
+        <a href="https://whatsapp.com" target="_blank"><img src="whatsapp.jpeg" alt="WhatsApp"> WhatsApp</a>
+        <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"> LinkedIn</a>
+    </div>
 </p>
 </section>
 
