@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tumelo Jack Dibate - Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('web.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        header h1 {
+            margin: 10px 0;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        header img {
+            width: 40px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        header img:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            width: 100%;
+            max-width: 1200px;
+		position: bottom;
+	
+        }
+
+        /* Sections - Initially hidden */
+        section {
+            display: none;
+            padding: 20px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        /* Active section will display with motion */
+        section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section Title Animation */
+        section h2 {
+            font-size: 2em;
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile-friendly header & menu */
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background: rgba(0, 0, 0, 0);
+            padding: 10px;
+            border-radius: 8px;
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            z-index: 1000;
+            width: 200px;
+            height: 100vh;
+		box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+            transition: left 0.3s ease-in-out;
+        }
+
+
+        .hamburger-menu button:hover {
+            background: #d35400;
+        }
+
+        .hamburger-menu.active {
+            display: flex;
+        }
+	.hamburger-menu button {
+            background: #e67e22;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            font-size: 1.0em;
+            transition: background 2s ease;
+		z-index: 1100;
+            transition: transform 2s ease-in-out;
+        }
+
+	/* Animated Hamburger Button */
+        .hamburger-button {
+            position: flex;
+            top: 20px;
+            left: 20px;
+            background-color: #e67e22;
+            color: #fff;
+            padding: 12px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+            transition: transform 0.5s ease-in-out;
+        }
+	.hamburger-button.open {
+            transform: rotate(45deg); /* Rotate to make a close icon */
+        }
+
+        .hamburger-button .click {
+            width: 30px;
+            height: 4px;
+            background-color: #fff;
+            margin: 6px 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hamburger-button.open .line:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .hamburger-button.open .line:nth-child(2) {
+            opacity: 0; /* Hide middle line */
+        }
+
+        .hamburger-button.open .line:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+        
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            background: #e67e22;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .social-icons a img {
+            width: 10px;
+            height: 15px;
+            margin-right: 10px;
+        }
+
+        .social-icons a:hover {
+            background: #d35400;
+        }
+
+        /* Mobile-Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            header img {
+                width: 30px;
+            }
+
+            .intro-section {
+                padding: 15px;
+                margin-top: 20px;
+            }
+
+            .intro-section h2 {
+                font-size: 1.6em;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .hamburger-button {
+                top: 20px;
+                left: 15px;
+            }
+        }
+	    .visitor-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.visitor-table th,
+.visitor-table td {
+  padding: 12px 20px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.visitor-table th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.visitor-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.visitor-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+        /* Image Hover Effects */
+        .intro-section img, .section img {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+
+        .intro-section img:hover, .section img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div id="current-time"></div> <!-- Live date and time -->
+    <h1><b>My Website Portfolio</b></h1>
+    <a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
+        <img src="tumelo.png" alt="Tumelo Logo">
+    </a>
+</header>
+
+<!-- Hamburger Menu Button (Toggle) -->
+<button class="hamburger-button" onclick="toggleHamburgerMenu()">☰</button>
+
+<!-- Hamburger Menu -->
+<div class="hamburger-menu" id="hamburger-menu">
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('about')">About Me</button>
+    <button onclick="showSection('projects')">Projects</button>
+    <button onclick="showSection('interests')">Interests & Hobbies</button>
+    <button onclick="showSection('certificates')">Certificates</button>
+    <button onclick="showSection('visitor')">Visitor Recommendations</button>
+    <button onclick="showSection('accolades')">Accolades & Awards</button>
+    <button onclick="showSection('contact')">Contact</button>
+</div>
+
+<!-- Sections -->
+<section id="home" class="active">
+    <h2>Hi, I'm Tumelo!</h2>
+    <div class="intro-section">
+        <img src="myphoto.jpg" alt="Tumelo Jack Dibate Photo">
+        <h2>Welcome to my personal portfolio!</h2>
+        <p><i>Navigate the menu bar to explore the sections to learn more about me.</i></p>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p><b>Informatics Student | Aspiring Data Scientist | System Admin | Java Dev | Web Dev | Database System Admin</b><br><br>
+
+I am a passionate and dedicated Senior Informatics student with a strong foundation in computer science, data analysis, and software development. Over the past few years, I've developed a broad range of technical skills and hands-on experience through various academic projects,  and self-initiated ventures.<br>
+I aim to create innovative solutions that make a positive impact in the world. In my free time, I enjoy developing websites, coding java, outdoor activities and exploring new hobbies.<br>
+
+Key Skills:
+<ul>
+<li><b>Programming Languages:</b> Proficient in, HTML, JS Python, Java, and SQL. </li>
+<li><b>Data Analysis:</b> Strong knowledge of data cleaning, manipulation, and visualization using tools like Pandas, NumPy, and Matplotlib.</li>
+<li><b>Database Management:</b> Familiar with relational databases, including MySQL.</li>
+<li><b>Machine Learning:</b> Hands-on experience in building machine learning models using libraries such as Scikit-learn and TensorFlow.</li>
+<li><b>Web Development:</b> Exposure to full-stack development, including HTML, CSS, JavaScript.</li>
+<li><b>Cloud Computing:</b> Working knowledge of cloud platforms like AWS and Google Cloud.</li>
+<li><b>Version Control:</b> Experienced with Git and GitHub for collaborative coding.</li><br><br>
+<b>Achievements:</b>
+Datathon 2024: Led a team of five to participate in a university-wide hackathon, developing a machine learning-based recommendation system.
+Dean’s List: Consistently achieved academic excellence, earning a spot on the Dean’s List for all semesters to date.
+</ul><br>
+<b>Future Goals:</b><i>
+I am eager to deepen my expertise in data science, artificial intelligence, and cloud computing. My goal is to apply these skills to real-world challenges in industries like healthcare, Education, finance, or technology.</i></p><br>
+	
+	<img src="tot2.jpg" alt="Tumelo Logo">
+	
+</section>
+
+
+<section id="projects">
+    <h2>My Projects</h2>
+    <p>Some interesting projects I've worked on...</p>
+	 
+	<b><i>Web Projects</i>
+    <ul>
+        <li>Project 1: Mamazala Shapaza Shop System</li>
+        <li>Project 2: Personal Finance Tracker</li>
+        <li>Project 3: Simple Chat Application</li>
+    </ul><br>
+	<b><i>Web Projects</i>
+    <ul>
+        <li>Project 1: Website Portfolio</li>
+        <li>Project 2: Personal Website Services</li>
+        <li>Project 3: Matric APS Calculator</li>
+    </ul>
+	<img src="tot3.jpg" alt="Tumelo Logo">
+
+</section>
+
+<section id="interests">
+    <h2>Interests & Hobbies</h2>
+    <p>I enjoy gaming, photography, and learning about new tech...</p>
+	
+    <ul>
+        <li>Coding with different languages</li>
+        <li>Outdoor activities</li>
+	<li>Music</li>
+	<li>Reading</li>
+    </ul>
+	<img src="tot1.png" alt="Tumelo Logo">
+
+</section>
+
+<section id="certificates">
+    <h2>Certificates</h2>
+    <p>Some certifications I've earned...</p>
+	<div class="certificate-container">
+        <div class="certificate">
+            <img src="Hack2skill-Certificate.png" alt="Certificate 1">
+        </div>
+        <div class="certificate">
+            <img src="overview-of-ai.png" alt="Certificate 2">
+        </div>
+        <div class="certificate">
+            <img src="certificate3.jpg" alt="Certificate 3">
+        </div>
+    </div>
+</section>
+
+<section id="visitor">
+    <h2>Visitor Recommendations</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Recommendation</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Memani Vuyisile</td>
+                <td>Great skills in programming!</td>
+                <td>2024-10-01</td><br>
+		    
+		<td>Media reactions</td>
+                <td>Awesome interface and great work!</td>
+                <td>2024-11-12</td><br>
+
+		<td>Thato Poopedi</td>
+                <td>Keep up the good work it's impressive</td>
+                <td>2024-11-20</td><br>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="accolades">
+    <h2>Accolades & Awards</h2>
+    <ul>
+        <li>Awarded Best Performer in Informatics</li>
+	<li>Class representative for 80% of 1st and 2nd year</li>
+	<li>Best commercial learner in matric</li>
+        <li>Recognized as a Senior Guardian in 2nd year</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>If you'd like to reach out, feel free to connect with me...<br>
+	<ul>
+        <li>Mobile: 067 968 2079</li>
+        <li>Email: dibatets@gmail</li>
+	<li>School Email: 217629055@tut4life.ac.za</li>
+        <li>Alt Email: stumzadibate@gmail.com</li>
+    </ul>
+	<div class="social-icons">
+        <a href="https://discord.com" target="_blank"><img src="discord.webp" alt="Discord"> Discord</a>
+        <a href="https://github.com" target="_blank"><img src="github.jpeg" alt="GitHub"> GitHub</a>
+        <a href="https://facebook.com" target="_blank"><img src="facebook.webp" alt="Facebook"> Facebook</a>
+        <a href="https://twitter.com" target="_blank"><img src="twitter.jpeg" alt="Twitter"> Twitter</a>
+        <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"> Instagram</a>
+        <a href="https://whatsapp.com" target="_blank"><img src="whatsapp.jpeg" alt="WhatsApp"> WhatsApp</a>
+        <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"> LinkedIn</a>
+    </div>
+</p>
+</section>
+
+<section id="chat-box-section">
+    <h2>Chat with Me</h2>
+    <div class="chat-box">
+        <textarea placeholder="Type your message here..."></textarea>
+        <button onclick="sendMessage()">Send Message</button>
+    </div>
+</section>
+
+
+<footer>
+    <p>&copy; 2024 Tumelo Jack Dibate. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Toggle Hamburger Menu
+    function toggleHamburgerMenu() {
+        document.getElementById("hamburger-menu").classList.toggle("active");
+    }
+
+    // Show specific section
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        });
+    }
+
+    // Update current time
+    function updateTime() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        document.getElementById('current-time').textContent = now.toLocaleDateString('en-ZA', options);
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+</script>
+
+</body>
+</html>

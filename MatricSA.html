@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>South African APS Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Background Image Motion */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            animation: moveBackground 15s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        /* Header and Navigation */
+         header {
+            position: flex;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #2a2a2a;
+            padding: 10px 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        header .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 12px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: #FF8C00;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Navigation (Hamburger) */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            width: 25px;
+            height: 20px;
+            justify-content: space-between;
+        }
+
+        .hamburger div {
+            height: 3px;
+            background-color: #fff;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links.active {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 1;
+            visibility: visible;
+            transition: visibility 0.3s, opacity 0.3s ease;
+        }
+
+        /* Content Sections */
+        section {
+            min-height: 100vh;
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fafafa;
+            flex-direction: column;
+        }
+
+
+        /* Only show the active section */
+        section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Home Section */
+#home {
+    background-color: #2a2a2a;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Main Introductory Section */
+#home .intro {
+    margin-bottom: 40px;
+}
+
+#home .intro h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+#home .intro p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+#home .btn-start {
+    background-color: #FF8C00;
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#home .btn-start:hover {
+    background-color: #ff6600;
+}
+
+/* Features Section */
+#home .features {
+    margin-bottom: 60px;
+}
+
+#home .features h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#home .feature-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+#home .feature-card {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#home .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#home .feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+#home .feature-card p {
+    font-size: 16px;
+}
+
+/* How It Works Section */
+#home .how-it-works {
+    margin-bottom: 60px;
+}
+
+#home .how-it-works h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#home .how-it-works ul {
+    list-style-type: none;
+    font-size: 18px;
+    line-height: 2;
+    margin-bottom: 40px;
+}
+
+/* Testimonials Section */
+#home .testimonials {
+    margin-bottom: 60px;
+}
+
+#home .testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#home .testimonial-cards {
+    display: flex;
+    justify-content: center;
+}
+
+#home .testimonial-card {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    margin: 0 15px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+#home .testimonial-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+#home .testimonial-card strong {
+    font-size: 18px;
+    color: #FF8C00;
+}
+
+/* Call to Action Section */
+#home .call-to-action {
+    margin-bottom: 60px;
+}
+
+#home .call-to-action h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#home .call-to-action p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #home .feature-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #home .feature-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    #home .testimonial-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #home .testimonial-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+
+
+        /* Form and Buttons */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .subject-select {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .subject-select label {
+            font-size: 18px;
+            margin: 10px 0;
+            display: block;
+            color: #fff;
+        }
+
+        .subject-select select,
+        .subject-select input {
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .live-time {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-media a {
+            margin: 0 15px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links.active {
+            transform: translateX(0);
+        }
+
+        /* Hamburger Menu Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 250px;
+                height: 100%;
+                background-color: #333;
+                flex-direction: column;
+                justify-content: center;
+                transition: transform 0.3s ease;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                cursor: pointer;
+            }
+
+            .hamburger.active span {
+                background-color: transparent;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .nav-links li a {
+                font-size: 20px;
+            }
+		  /* Sections styling for other sections */
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        .form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #FF8C00;
+            outline: none;
+        }
+
+        button {
+            background-color: #FF8C00;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background-color: #ff6600;
+        }
+
+        }
+	section {
+                padding: 20px;
+            }
+
+            form {
+                width: 90%;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+    </style>
+</head>
+
+<body>
+    <!-- Header with Hamburger Menu and Profile -->
+    <header>
+        <div class="logo">APS Calculator</div>
+        <div class="profile-name" id="profile-name"></div>
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#" class="nav-link" data-section="home">Home</a></li>
+           <li><a href="#" class="nav-link" data-section="register">Register</a></li>
+            <li><a href="#" class="nav-link" data-section="login">Login</a></li>
+            
+		 <li><a href="#" class="nav-link" data-section="calculate">Calculate APS</a></li>
+            <li><a href="#" class="nav-link" data-section="contact-us">Contact Us</a></li>
+        </ul>
+    </header>
+
+    <!-- Home Section with Animated Background and Requirements Info -->
+    <section id="home">
+    <div class="content">
+        <!-- Main Introductory Section -->
+        <div class="intro">
+            <h1>Welcome to the South African APS Calculator</h1>
+            <p>Calculate your APS score for university applications with ease and confidence.</p>
+            <a href="#calculate" class="btn-start">Start Calculation</a>
+        </div>
+
+        <!-- Features and Benefits Section -->
+        <div class="features">
+            <h2>Why Choose Our APS Calculator?</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <h3>Accurate Results</h3>
+                    <p>Get an accurate APS score based on your subject marks and admission requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Fast and Simple</h3>
+                    <p>Use our easy-to-use calculator and get results in just a few steps.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Comprehensive Guide</h3>
+                    <p>Receive detailed guidance on your APS score and university application process.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- How it Works Section -->
+        <div class="how-it-works">
+            <h2>How It Works</h2>
+            <p>Using the APS Calculator is quick and simple:</p>
+            <ul>
+                <li><strong>Step 1:</strong> Enter your subject marks from your high school results.</li>
+                <li><strong>Step 2:</strong> Select your desired program or course of study.</li>
+                <li><strong>Step 3:</strong> Click "Calculate" to receive your APS score and understand your eligibility.</li>
+            </ul>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials">
+            <h2>What Our Users Are Saying</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <p>"The APS Calculator helped me quickly determine if I met the requirements for the university I wanted to apply to. It was fast and accurate!"</p>
+                    <p><strong>- Memani V., Prospective Student</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I had no idea how to calculate my APS score until I used this tool. It saved me so much time, and now I feel confident about my application."</p>
+                    <p><strong>- Poopedi TL, Prospective Student</strong></p>
+                </div>
+		<div class="testimonial-card">
+                    <p>"I had no idea how to calculate my APS score until I used this tool. It saved me so much time, and now I feel confident about my application."</p>
+                    <p><strong>- Dibate TJ, Prospective Student</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="call-to-action">
+            <h2>Ready to Get Started?</h2>
+            <p>Start your journey towards university admission today!</p>
+            <a href="#calculate" class="btn-start">Calculate Your APS Score</a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- APS Calculation Section (Protected) -->
+    <section id="calculate">
+        <div class="form-container">
+            <h2>Calculate Your APS</h2>
+            <form id="aps-form" onsubmit="event.preventDefault(); calculateAPS();">
+                <div id="subjects-container">
+                    <!-- Subjects will be added dynamically here -->
+                </div>
+                <button type="button" onclick="addSubject()">Add Subject</button>
+                <button type="submit">Calculate APS</button>
+            </form>
+            <p id="message" style="color: red;"></p>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login">
+        <div class="form-container">
+		<form>
+            <h2>Login</h2>
+            <form onsubmit="event.preventDefault(); loginUser();">
+                <input type="text" placeholder="Username" id="login-username" required>
+                <input type="password" placeholder="Password" id="login-password" required>
+                <button type="submit">Login</button>
+            </form>
+		</form>
+        </div>
+    </section>
+
+    <!-- Register Section -->
+    <section id="register">
+        <div class="form-container">
+            <h2>Register</h2>
+            <form onsubmit="event.preventDefault(); registerUser();">
+                <input type="text" placeholder="Username" id="register-username" required>
+                <input type="email" placeholder="Email" id="register-email" required>
+                <input type="password" placeholder="Password" id="register-password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </section>
+		<!-- Contact Us Section -->
+    <section id="contact-us">
+        <div class="form-container">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Footer with Social Media Links and Live Time -->
+    <footer>
+        <p>© 2024 APS Calculator. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <div class="live-time" id="live-time"></div>
+    </footer>
+
+    <script>
+        let loggedIn = false; // Change this based on login state
+        let username = "User"; // This should be dynamic
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Section navigation
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetSection = document.getElementById(e.target.dataset.section);
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => section.classList.remove('active'));
+                targetSection.classList.add('active');
+            });
+        });
+
+        // Display live time
+        function updateLiveTime() {
+            const liveTime = document.getElementById('live-time');
+            const now = new Date();
+            liveTime.textContent = now.toLocaleString('en-GB', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+        }
+        setInterval(updateLiveTime, 1000);
+
+        // Add a subject with rating level
+        function addSubject() {
+            const subjectsContainer = document.getElementById('subjects-container');
+            const subjectCount = subjectsContainer.children.length + 1;
+
+            const subjectHTML = `
+                <div class="subject-select">
+                    <label for="subject-${subjectCount}">Subject ${subjectCount}</label>
+                    <select name="subject-${subjectCount}" id="subject-${subjectCount}">
+                        <option value="maths">Mathematics</option>
+                        <option value="physics">Physics</option>
+                        <option value="biology">Biology</option>
+                        <option value="chemistry">Chemistry</option>
+                    </select>
+                    <label for="rating-${subjectCount}">Rating (Level 1-7)</label>
+                    <input type="number" name="rating-${subjectCount}" id="rating-${subjectCount}" min="1" max="7" required>
+                </div>
+            `;
+            subjectsContainer.insertAdjacentHTML('beforeend', subjectHTML);
+        }
+
+        // Login user
+        function loginUser() {
+            loggedIn = true;
+            document.getElementById('message').textContent = 'Login successful! You can now calculate APS.';
+            document.getElementById('message').style.color = 'green';
+            setTimeout(() => {
+                document.getElementById('login').classList.remove('active');
+                document.getElementById('calculate').classList.add('active');
+            }, 1000);
+        }
+
+        // Register user
+        function registerUser() {
+            loggedIn = true;
+            document.getElementById('message').textContent = 'Registration successful! You can now calculate APS.';
+            document.getElementById('message').style.color = 'green';
+            setTimeout(() => {
+                document.getElementById('register').classList.remove('active');
+                document.getElementById('calculate').classList.add('active');
+            }, 1000);
+        }
+
+        // Calculate APS score
+        function calculateAPS() {
+            if (!loggedIn) {
+                document.getElementById('message').textContent = 'Please log in or register to calculate APS.';
+                document.getElementById('message').style.color = 'red';
+                return;
+            }
+
+            const subjectsContainer = document.getElementById('subjects-container');
+            let apsTotal = 0;
+
+            const subjectElements = subjectsContainer.querySelectorAll('.subject-select');
+            subjectElements.forEach(subjectElement => {
+                const rating = parseInt(subjectElement.querySelector('input').value, 10);
+                if (rating >= 1 && rating <= 7) {
+                    apsTotal += rating;
+                }
+            });
+
+            document.getElementById('message').textContent = `Your Total APS is: ${apsTotal}`;
+            document.getElementById('message').style.color = 'blue';
+        }
+    </script>
+</body>
+
+</html>
