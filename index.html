@@ -368,37 +368,29 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
 </footer>
 
 <script>
-    // Toggle the hamburger menu visibility
-    function toggleHamburgerMenu() {
-        document.getElementById("hamburger-menu").classList.toggle("active");
-    }
+        // Toggle hamburger menu visibility
+        function toggleHamburgerMenu() {
+            var menu = document.getElementById("hamburger-menu");
+            menu.classList.toggle("active");
+        }
 
-    // Show specific section
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => {
-            if (section.id === sectionId) {
-                section.classList.add('active');
-            } else {
-                section.classList.remove('active');
-            }
-        });
-    }
+        // Show sections based on button click
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll("section");
+            sections.forEach(function (section) {
+                section.classList.remove("active");
+            });
+            document.getElementById(sectionId).classList.add("active");
+        }
 
-    // Update current time
-    function updateTime() {
-        const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        document.getElementById('current-time').textContent = now.toLocaleDateString('en-ZA', options);
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
-
-    // Send message from the chat box
-    function sendMessage() {
-        alert('Message sent!');
-    }
-</script>
+        // Display current date and time
+        setInterval(function () {
+            var now = new Date();
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            document.getElementById('current-time').innerHTML = now.toLocaleDateString('en-US', options);
+        }, 1000);
+    </script>
 
 </body>
+
 </html>
