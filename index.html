@@ -9,7 +9,7 @@
         /* Body Styling */
 /* General Body Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     background-image: url('nice.png');
     background-size: cover;
     background-position: center;
@@ -113,8 +113,7 @@ header img:hover {
 
 /* General Section Styling - Align like Home Section */
 section {
-    display: none;
-    margin: 0 auto;
+    display: flex;
     padding: 20px;
     background: linear-gradient(to right, #f39c12, #f1c40f); /* Gradient background */
     border-radius: 8px;
@@ -142,8 +141,10 @@ section.active {
 
 /* Make sure each section fills space like the Home Section */
 section {
-    max-width: 1000px;
-    margin-top: 20px;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes slideIn {
@@ -348,7 +349,8 @@ footer {
 
     <header>
         <div id="current-time"></div>
-        <p>Software Developer | Programmer | Learner</p>
+	<h2><b>Welcome!</b></h2>
+        <p><b>Software Developer | Programmer | Learner</b></p>
         <button class="hamburger-button" onclick="toggleHamburgerMenu()">☰</button>
     </header>
 
@@ -372,13 +374,13 @@ footer {
 
     <!-- Sections -->
     <section id="home" class="active">
-        <h2>Welcome!</h2>
+        
         <div class="box">
             <h2>Hi, I'm Tumelo!</h2>
             <div class="intro-section">
                 <img src="myphoto.jpg" alt="Tumelo Jack Dibate">
                 <div class="intro-text">
-                    <p><b>Hello!</b> I’m Tumelo Jack Dibate, a passionate programmer who loves solving complex problems using efficient and optimized solutions. I’m currently studying at the University of XYZ and always looking for opportunities to learn and grow in the field of software development.</p>
+                    <p><b>Hello!</b> I’m Tumelo Jack Dibate, a passionate programmer who loves solving complex problems using efficient and optimized solutions.<br>I’m currently studying at the University of XYZ and always looking for opportunities to learn and grow in the field of software development.</p>
 
 		     <a id="download-cv" href="path/to/your/cv.pdf" download>Download My CV</a>
                 </div>
