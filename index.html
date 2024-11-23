@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tumelo Jack Dibate - Portfolio</title>
     <style>
-  /* General Body Styles */
+ /* General Body Styles */
 body {
-    font-family: 'Ubuntu', sans-serif; /* Set all text to Ubuntu */
+    font-family: 'Arial', sans-serif;
     background-image: url('nice.png');
     background-size: cover;
     background-position: center;
@@ -29,7 +29,7 @@ header {
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0; /* No extra space below header */
+    margin-bottom: 10px;
     position: relative;
     z-index: 10;
 }
@@ -113,14 +113,15 @@ header img:hover {
 /* General Section Styling - Align like Home Section */
 section {
     display: none;
+    margin: 0 auto;
     padding: 20px;
-    background: #f4f4f4; /* Lighter background color for sections */
+    background: linear-gradient(to right, #f39c12, #f1c40f); /* Gradient background */
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    width: 100%; /* Make sure sections take full width */
-    margin-top: 20px; /* Space to avoid overlaying the header */
+    margin-top: 20px; /* Added margin to avoid overlaying the header */
 }
 
 section.active {
@@ -141,18 +142,7 @@ section.active {
 /* Make sure each section fills space like the Home Section */
 section {
     max-width: 1000px;
-    margin: 0 auto;
-    padding: 30px;
     margin-top: 20px;
-}
-
-/* Make all sections have same layout behavior as Home section */
-#home, section {
-    min-height: 100vh; /* Ensure full section height */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align items at the start */
-    padding: 0 15px; /* Small padding for sections */
 }
 
 @keyframes slideIn {
@@ -247,36 +237,35 @@ tr:hover td {
     background-color: #ecf0f1;
 }
 
-/* Intro Section Styling (Used for all sections now) */
-section {
+/* Intro Section Styling */
+.intro-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
-section img {
+.intro-section img {
     border-radius: 50%;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     margin-right: 20px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-section img:hover {
+.intro-section img:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-section .text-content {
+.intro-text {
     max-width: 600px;
 }
 
-section .text-content p {
+.intro-text p {
     line-height: 1.6;
 }
 
-section .text-content b {
+.intro-text b {
     color: #e67e22;
 }
 
@@ -349,7 +338,6 @@ footer {
     background-color: rgba(255, 255, 255, 0.9);
     font-family: 'Ubuntu', sans-serif;
 }
-
 
     </style>
 </head>
