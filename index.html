@@ -1,249 +1,311 @@
-<!DOCTYPE html>
-<html lang="en">
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('nice.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tumelo Jack Dibate - Portfolio</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('nice.png');
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-attachment: fixed;
-        }
+header {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
 
-        header {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 10px;
-        }
+header h1 {
+    margin: 10px 0;
+    font-size: 2.5em;
+    color: #e67e22;
+}
 
-        header h1 {
-            margin: 10px 0;
-            font-size: 2em;
-            color: #e67e22;
-        }
+header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
 
-        header img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
+header img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
 
-        header img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    z-index: 1000;
+    width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out;
+}
 
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px;
-            border-radius: 8px;
-            position: fixed;
-            top: 70px;
-            left: 10px;
-            z-index: 1000;
-            width: 200px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            animation: slideIn 0.3s ease-out;
-        }
+.hamburger-menu.active {
+    display: flex;
+}
 
-        .hamburger-menu.active {
-            display: flex;
-        }
+.hamburger-menu button {
+    background: #e67e22;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+}
 
-        .hamburger-menu button {
-            background: #e67e22;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s ease;
-        }
+.hamburger-menu button:hover {
+    background: #d35400;
+}
 
-        .hamburger-menu button:hover {
-            background: #d35400;
-        }
+.hamburger-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #e67e22;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
 
-        .hamburger-button {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            background-color: #e67e22;
-            color: #fff;
-            padding: 10px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            z-index: 1100;
-        }
+section {
+    display: none;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
 
-        section {
-            display: none;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
+section.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-out;
+}
 
-        section.active {
-            display: block;
-            opacity: 1;
-            animation: fadeIn 0.5s ease-out;
-        }
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
+    100% {
+        opacity: 1;
+    }
+}
 
-            100% {
-                opacity: 1;
-            }
-        }
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
 
-        @keyframes slideIn {
-            0% {
-                transform: translateX(-100%);
-            }
+    100% {
+        transform: translateX(0);
+    }
+}
 
-            100% {
-                transform: translateX(0);
-            }
-        }
+h2 {
+    color: #2c3e50;
+    margin-top: 20px;
+    font-size: 2.5em;
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 5px;
+}
 
-        h2 {
-            color: #2c3e50;
-            margin-top: 20px;
-            font-size: 2em;
-            border-bottom: 2px solid #e67e22;
-            padding-bottom: 5px;
-        }
+footer {
+    text-align: center;
+    font-size: 1em;
+    color: #7f8c8d;
+    margin-top: auto;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+}
 
-        footer {
-            text-align: center;
-            font-size: 1em;
-            color: #7f8c8d;
-            margin-top: auto;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px;
-        }
+.social-icons a {
+    color: #e67e22;
+    margin: 5px;
+    text-decoration: none;
+    font-size: 1em;
+}
 
-        .social-icons a {
-            color: #e67e22;
-            margin: 10px;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
+.social-icons a:hover {
+    color: #d35400;
+}
 
-        .social-icons a:hover {
-            color: #d35400;
-        }
+#current-time {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
 
-        #current-time {
-            margin-top: 10px;
-            font-size: 1em;
-            color: #555;
-        }
+#download-cv {
+    display: inline-block;
+    background: #e67e22;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-decoration: none;
+}
 
-        #download-cv {
-            display: inline-block;
-            background: #e67e22;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-decoration: none;
-        }
+#download-cv:hover {
+    background: #d35400;
+}
 
-        #download-cv:hover {
-            background: #d35400;
-        }
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-        /* Table Styles */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+table, th, td {
+    border: 1px solid #e67e22;
+    text-align: left;
+}
 
-        table, th, td {
-            border: 1px solid #e67e22;
-            text-align: left;
-        }
+th, td {
+    padding: 12px;
+}
 
-        th, td {
-            padding: 12px;
-        }
+th {
+    background-color: #f39c12;
+    color: white;
+}
 
-        th {
-            background-color: #f39c12;
-            color: white;
-        }
+td {
+    background-color: #f9f9f9;
+}
 
-        td {
-            background-color: #f9f9f9;
-        }
+tr:hover td {
+    background-color: #ecf0f1;
+}
 
-        tr:hover td {
-            background-color: #ecf0f1;
-        }
+/* Intro Section */
+.intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        /* Intro Section */
-        .intro-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+.intro-section img {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    margin-right: 20px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
 
-        .intro-section img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            margin-right: 20px;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
+.intro-section img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
 
-        .intro-section img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
+.intro-text {
+    max-width: 600px;
+}
 
-        .intro-text {
-            max-width: 600px;
-        }
+.intro-text p {
+    line-height: 1.6;
+}
 
-        .intro-text p {
-            line-height: 1.6;
-        }
+.intro-text b {
+    color: #e67e22;
+}
 
-        .intro-text b {
-            color: #e67e22;
-        }
+/* Footer and Social Icons */
+footer .social-icons a img {
+    width: 25px;
+    height: 25px;
+}
+
+footer .social-icons a:hover img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Certificate Section */
+.certificate-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.certificate img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.certificate img:hover {
+    transform: scale(1.05);
+}
+
+/* Update Images in Other Sections */
+#interests img,
+#about img,
+#experience img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+#interests img:hover,
+#about img:hover,
+#experience img:hover {
+    transform: scale(1.1);
+}
+
+/* Make Home Section Larger */
+#home {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home .box {
+    max-width: 1000px;
+}
+
+/* Footer Positioning */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
     </style>
 </head>
 
@@ -481,7 +543,7 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
         <div class="social-icons">
             <a href="https://www.linkedin.com" title="LinkedIn"><img src="linkedin.png" alt="LinkedIn"> LinkedIn</a>
             <a href="https://github.com" title="GitHub"><img src="github.png" alt="GitHub"> GitHub</a>
-            <a href="mailto:tumelo.jack.dibate@gmail.com" title="Email"><img src="facebook.webp" alt="Email"> Email</a>
+            <a href="mailto:tumelo.jack.dibate@gmail.com" title="Email"><img src="email.png" alt="Email"> Email</a>
         </div>
     </footer>
 
