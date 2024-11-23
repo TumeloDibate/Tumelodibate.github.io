@@ -8,7 +8,6 @@
     <style>
         /* Body Styling */
 /* General Body Styles */
-/* General Body Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-image: url('nice.png');
@@ -239,35 +238,36 @@ tr:hover td {
     background-color: #ecf0f1;
 }
 
-/* Intro Section Styling */
-.intro-section {
+/* Intro Section Styling (Used for all sections now) */
+section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.intro-section img {
+section img {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     margin-right: 20px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.intro-section img:hover {
+section img:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.intro-text {
+section .text-content {
     max-width: 600px;
 }
 
-.intro-text p {
+section .text-content p {
     line-height: 1.6;
 }
 
-.intro-text b {
+section .text-content b {
     color: #e67e22;
 }
 
@@ -340,6 +340,7 @@ footer {
     background-color: rgba(255, 255, 255, 0.9);
     font-family: 'Ubuntu', sans-serif;
 }
+
 
 
 
