@@ -111,19 +111,18 @@ header img:hover {
     transform: rotate(90deg);
 }
 
-/* All Sections Styling - to display below header */
+/* General Section Styling - Align like Home Section */
 section {
     display: none;
-    margin: 20px auto;
-    padding: 25px;
-    background: linear-gradient(to right, #f39c12, #f1c40f); /* Vibrant gradient background */
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(to right, #f39c12, #f1c40f); /* Gradient background */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
+    max-width: 1000px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    max-height: calc(100vh - 150px);  /* Adjusting height so sections are scrollable */
-    overflow-y: auto; /* Make sections scrollable if content overflows */
+    margin-top: 20px; /* Added margin to avoid overlaying the header */
 }
 
 section.active {
@@ -139,6 +138,12 @@ section.active {
     100% {
         opacity: 1;
     }
+}
+
+/* Make sure each section fills space like the Home Section */
+section {
+    max-width: 1000px;
+    margin-top: 20px;
 }
 
 @keyframes slideIn {
@@ -334,6 +339,7 @@ footer {
     background-color: rgba(255, 255, 255, 0.9);
     font-family: 'Ubuntu', sans-serif;
 }
+
 
     </style>
 </head>
