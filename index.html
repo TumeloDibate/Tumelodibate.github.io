@@ -8,8 +8,9 @@
     <style>
         /* Body Styling */
 /* General Body Styles */
+/* General Body Styles */
 body {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Arial', sans-serif;
     background-image: url('nice.png');
     background-size: cover;
     background-position: center;
@@ -114,16 +115,15 @@ header img:hover {
 /* General Section Styling - Align like Home Section */
 section {
     display: none;
+    margin: 0 auto;
     padding: 20px;
     background: linear-gradient(to right, #f39c12, #f1c40f); /* Gradient background */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
+    max-width: 1000px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-     margin: 20px auto; /* Added margin to avoid overlaying the header */
-
-
+    margin-top: 20px; /* Added margin to avoid overlaying the header */
 }
 
 section.active {
@@ -142,7 +142,10 @@ section.active {
 }
 
 /* Make sure each section fills space like the Home Section */
-
+section {
+    max-width: 1000px;
+    margin-top: 20px;
+}
 
 @keyframes slideIn {
     0% {
@@ -337,6 +340,7 @@ footer {
     background-color: rgba(255, 255, 255, 0.9);
     font-family: 'Ubuntu', sans-serif;
 }
+
 
 
     </style>
