@@ -113,15 +113,17 @@ header img:hover {
 
 /* General Section Styling - Align like Home Section */
 section {
-    display: flex;
+    display: none;
     padding: 20px;
     background: linear-gradient(to right, #f39c12, #f1c40f); /* Gradient background */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    max-width: 1000px;
+    max-width: 800px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    margin-top: 20px; /* Added margin to avoid overlaying the header */
+     margin: 20px auto; /* Added margin to avoid overlaying the header */
+
+
 }
 
 section.active {
@@ -140,12 +142,7 @@ section.active {
 }
 
 /* Make sure each section fills space like the Home Section */
-section {
-    min-height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 @keyframes slideIn {
     0% {
