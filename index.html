@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tumelo Jack Dibate - Portfolio</title>
     <style>
-        body {
+        /* Body Styling */
+body {
     font-family: 'Arial', sans-serif;
     background-image: url('nice.png');
     background-size: cover;
@@ -21,9 +22,10 @@
     overflow-x: hidden;
 }
 
+/* Header Styling */
 header {
     background: rgba(255, 255, 255, 0.9);
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -32,13 +34,13 @@ header {
 
 header h1 {
     margin: 5px 0;
-    font-size: 1.8em;  /* Smaller header font size */
+    font-size: 1.8em;
     color: #e67e22;
 }
 
 header img {
-    width: 80px; /* Smaller image size */
-    height: 80px; /* Smaller image size */
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     margin-bottom: 10px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -49,20 +51,21 @@ header img:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Hamburger Menu Styling */
 .hamburger-menu {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
     border-radius: 8px;
     position: fixed;
     top: 70px;
     left: 10px;
     z-index: 1000;
-    width: 200px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     animation: slideIn 0.3s ease-out;
 }
 
@@ -73,44 +76,51 @@ header img:hover {
 .hamburger-menu button {
     background: #e67e22;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     margin-bottom: 10px;
     cursor: pointer;
     width: 100%;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .hamburger-menu button:hover {
     background: #d35400;
+    transform: translateX(5px);
 }
 
 .hamburger-button {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 15px;
     background-color: #e67e22;
     color: #fff;
-    padding: 10px;
+    padding: 12px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
     z-index: 1100;
+    transition: transform 0.3s ease;
 }
 
+.hamburger-button:hover {
+    transform: rotate(90deg);
+}
+
+/* Section Styling */
 section {
     display: none;
     margin: 20px auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    background: linear-gradient(to right, #f39c12, #f1c40f); /* Vibrant gradient background */
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     max-width: 800px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    max-height: calc(100vh - 200px); /* Allow sections to be scrollable */
-    overflow-y: auto;  /* Enable scrolling */
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
 }
 
 section.active {
@@ -123,7 +133,6 @@ section.active {
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -133,40 +142,42 @@ section.active {
     0% {
         transform: translateX(-100%);
     }
-
     100% {
         transform: translateX(0);
     }
 }
 
+/* Header Section Text Styling */
 h2 {
     color: #2c3e50;
     margin-top: 20px;
-    font-size: 2em; /* Adjusted for consistency */
+    font-size: 2em;
     border-bottom: 2px solid #e67e22;
     padding-bottom: 5px;
 }
 
+/* Footer Styling */
 footer {
     text-align: center;
-    font-size: 1em;
+    font-size: 1.1em;
     color: #7f8c8d;
     margin-top: auto;
     background: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    position: relative; /* Ensures footer doesn't overlay content */
+    padding: 15px;
+    font-family: 'Ubuntu', sans-serif; /* Changed footer font to Ubuntu */
+    position: relative;
     bottom: 0;
     width: 100%;
 }
 
-.social-icons a {
+footer .social-icons a {
     color: #e67e22;
     margin: 5px;
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
-.social-icons a:hover {
+footer .social-icons a:hover {
     color: #d35400;
 }
 
@@ -219,7 +230,7 @@ tr:hover td {
     background-color: #ecf0f1;
 }
 
-/* Intro Section */
+/* Intro Section Styling */
 .intro-section {
     display: flex;
     align-items: center;
@@ -228,8 +239,8 @@ tr:hover td {
 
 .intro-section img {
     border-radius: 50%;
-    width: 150px;  /* Adjusted for consistency */
-    height: 150px;  /* Adjusted for consistency */
+    width: 150px;
+    height: 150px;
     margin-right: 20px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
@@ -298,7 +309,7 @@ footer .social-icons a:hover img {
     transform: scale(1.1);
 }
 
-/* Make Home Section Larger */
+/* Home Section */
 #home {
     min-height: 70vh;
     display: flex;
@@ -318,7 +329,8 @@ footer {
     text-align: center;
     padding: 15px 10px;
     background-color: rgba(255, 255, 255, 0.9);
-    margin-top: auto; /* Ensures footer remains at the bottom */
+    margin-top: auto;
+    font-family: 'Ubuntu', sans-serif; /* Footer font style */
 }
 
     </style>
