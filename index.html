@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-image: url('nice.png');
+            background-image: url('web.jpeg');
             background-size: cover;
             background-position: center;
             margin: 0;
@@ -17,6 +17,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background-attachment: fixed; /* Keeps background fixed */
         }
 
         header {
@@ -31,11 +32,12 @@
 
         header h1 {
             margin: 10px 0;
-            font-size: 1.8em;
+            font-size: 2em;
+            color: #e67e22;
         }
 
         header img {
-            width: 40px;
+            width: 70px;
             height: auto;
             border-radius: 50%;
             margin-bottom: 10px;
@@ -150,18 +152,29 @@
         h2 {
             color: #2c3e50;
             margin-top: 20px;
-            font-size: 1.8em;
+            font-size: 2em;
             border-bottom: 2px solid #e67e22;
             padding-bottom: 5px;
         }
 
         footer {
             text-align: center;
-            font-size: 0.9em;
+            font-size: 1em;
             color: #7f8c8d;
             margin-top: auto;
             background: rgba(255, 255, 255, 0.9);
             padding: 10px;
+        }
+
+        .social-icons a {
+            color: #e67e22;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .social-icons a:hover {
+            color: #d35400;
         }
 
         #current-time {
@@ -170,13 +183,28 @@
             color: #555;
         }
 
+        #download-cv {
+            display: inline-block;
+            background: #e67e22;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        #download-cv:hover {
+            background: #d35400;
+        }
+
+        /* Media Queries */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.5em;
             }
 
             header img {
-                width: 30px;
+                width: 50px;
             }
 
             .hamburger-menu {
@@ -185,48 +213,41 @@
         }
     </style>
 </head>
+
 <body>
 
-<header>
-    <div id="current-time"></div> <!-- Live date and time -->
-    <h1><b>My Website Portfolio</b></h1>
-    <a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
-        <img src="tumelo.png" alt="Tumelo Logo">
-    </a>
-</header>
+    <header>
+        <div id="current-time"></div> <!-- Live date and time -->
+        <h1><b>My Website Portfolio</b></h1>
+        <a href="https://tumelodibate.github.io/" title="Visit Tumelo Page">
+            <img src="tumelo.png" alt="Tumelo Logo">
+        </a>
+    </header>
 
-<!-- Introduction Section -->
+    <!-- Hamburger Menu Button (Toggle) -->
+    <button class="hamburger-button" onclick="toggleHamburgerMenu()">☰</button>
 
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburger-menu">
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('about')">About Me</button>
+        <button onclick="showSection('projects')">Projects</button>
+        <button onclick="showSection('interests')">Interests & Hobbies</button>
+        <button onclick="showSection('certificates')">Certificates</button>
+        <button onclick="showSection('visitor')">Visitor Recommendations</button>
+        <button onclick="showSection('accolades')">Accolades & Awards</button>
+        <button onclick="showSection('contact')">Contact</button>
+    </div>
 
-<!-- Hamburger Menu Button (Toggle) -->
-<button class="hamburger-button" onclick="toggleHamburgerMenu()">☰</button>
-
-<!-- Hamburger Menu -->
-<div class="hamburger-menu" id="hamburger-menu">
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('about')">About Me</button>
-	<button onclick="showSection('projects')">Projects</button>
-    <button onclick="showSection('interests')">Interests & Hobbies</button>
-    
-    <button onclick="showSection('certificates')">Certificates</button>
-    
-    <button onclick="showSection('visitor')">Visitor Recommendations</button>
-    <button onclick="showSection('accolades')">Accolades & Awards</button>
-	<button onclick="showSection('contact')">Contact</button>
-    <!-- Social Media Links -->
-    
-</div>
-
-<!-- Sections -->
-<section id="home">
-    <h2>Hi, I'm Tumelo! </h2>
-    <p></p>
-	<section class="intro-section">
-    <img src="myphoto.jpg" alt="Tumelo Jack Dibate Photo">
-    <h2> </h2>
-    <p><i><b>Welcome to my personal portfolio!</b><br> Navigate menu bar to explore the sections to learn more about me. </i></p>
-</section>
-</section>
+    <!-- Sections -->
+    <section id="home" class="active">
+        <h2>Hi, I'm Tumelo!</h2>
+        <div class="intro-section">
+            <img src="myphoto.jpg" alt="Tumelo Jack Dibate Photo" style="max-width: 100%; border-radius: 50px; transition: transform 0.5s ease;">
+            <p><i><b>Welcome to my personal portfolio!<br> Navigate through the menu to learn more about me.</b></i></p>
+            <a id="download-cv" href="path/to/your/cv.pdf" download>Download My CV</a>
+        </div>
+    </section>
 
 <section id="about">
     <h2>About Me</h2>
@@ -367,7 +388,7 @@ I am eager to deepen my expertise in data science, artificial intelligence, and 
     <p>&copy; 2024 Tumelo Jack Dibate. All rights reserved.</p>
 </footer>
 
-<script>
+ <script>
         // Toggle hamburger menu visibility
         function toggleHamburgerMenu() {
             var menu = document.getElementById("hamburger-menu");
