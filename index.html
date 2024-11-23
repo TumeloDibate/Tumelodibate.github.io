@@ -298,6 +298,43 @@ footer .social-icons a:hover img {
 .certificate img:hover {
     transform: scale(1.05);
 }
+.skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Grid layout for skills */
+            gap: 15px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .skill-name {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .bar {
+            height: 30px;
+            background-color: #e67e22;
+            border-radius: 5px;
+            width: 100%; /* Make the bars stretch to fill the grid's space */
+            position: relative;
+        }
+
+        .bar-label {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-weight: bold;
+        }
 
 /* Update Images in Other Sections */
 #interests img,
