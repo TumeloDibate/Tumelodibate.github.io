@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tumelo Jack Dibate - Portfolio</title>
+    <style>
+ /* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('nice.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-attachment: fixed;
+    overflow-x: visible;
+}
+
+/* Header Styling */
+header {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    margin: 5px 0;
+    font-size: 1.8em;
+    color: #e67e22;
+}
+
+header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+header img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Hamburger Menu Styling */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.10);
+    padding: 20px;
+    border-radius: 8px;
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    z-index: 1000;
+    width: 150px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-out;
+}
+
+.hamburger-menu.active {
+    display: flex;
+}
+
+.hamburger-menu button {
+    background: #e67e22;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger-menu button:hover {
+    background: #d35400;
+    transform: translateX(5px);
+}
+
+.hamburger-button {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #e67e22;
+    color: #fff;
+    padding: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-button:hover {
+    transform: rotate(90deg);
+}
+
+section {
+            display: none;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        section.active {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Heading Styling */
+h2 {
+    color: #2c3e50;
+    margin-top: 20px;
+    font-size: 2em;
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 5px;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    font-size: 1.1em;
+    color: #7f8c8d;
+    margin-top: 20px;
+    padding: 15px;
+    font-family: 'Ubuntu', sans-serif; /* Changed footer font to Ubuntu */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+footer .social-icons a {
+    color: #e67e22;
+    margin: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+footer .social-icons a:hover {
+    color: #d35400;
+}
+
+#current-time {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+#download-cv {
+    display: inline-block;
+    background: #e67e22;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+#download-cv:hover {
+    background: #d35400;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #e67e22;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+}
+
+th {
+    background-color: #f39c12;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background-color: #ecf0f1;
+}
+
+/* Intro Section Styling */
+.intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.intro-section img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.intro-section img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.intro-text {
+    max-width: 600px;
+}
+
+.intro-text p {
+    line-height: 1.6;
+}
+
+.intro-text b {
+    color: #e67e22;
+}
+
+/* Footer and Social Icons */
+footer .social-icons a img {
+    width: 25px;
+    height: 25px;
+}
+
+footer .social-icons a:hover img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Certificate Section */
+.certificate-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.certificate img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.certificate img:hover {
+    transform: scale(1.05);
+}
+.skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Grid layout for skills */
+            gap: 40px;
+            width: 50%;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+	    width: 300px;
+        }
+
+        .skill-name {
+            font-size: 1.0em;
+            margin-bottom: 10px;
+        }
+
+        .bar {
+            height: 10px;
+            background-color: #e67e22;
+            border-radius: 5px;
+            width: 500px; /* Make the bars stretch to fill the grid's space */
+            position: relative;
+        }
+
+        .bar-label {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-weight: bold;
+        }
+
+/* Update Images in Other Sections */
+#interests img,
+#about img,
+#experience img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+}
+
+#interests img:hover,
+#about img:hover,
+#experience img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Footer Positioning */
+footer {
+            text-align: center;
+            font-size: 1em;
+            color: #7f8c8d;
+            margin-top: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div id="current-time"></div>
+	<h2><b>Welcome!</b></h2>
+        <p><b>Software Developer | Programmer | Learner</b></p>
+        <button class="hamburger-button" onclick="toggleHamburgerMenu()">☰</button>
+    </header>
+
+    <!-- Hamburger Menu Button (Toggle) -->
+    
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburger-menu">
+	    <div class="box">
+        <button onclick="showSection('home')">Home</button>
+        <button onclick="showSection('about')">About Me</button>
+	    <button onclick="showSection('skills')">Skills</button>
+        <button onclick="showSection('experience')">Experience</button>
+        <button onclick="showSection('education')">Education</button>
+
+        <button onclick="showSection('interests')">Interests & Hobbies</button>
+        <button onclick="showSection('certificates')">Certificates</button>
+
+        <button onclick="showSection('contact')">Contact</button>
+    </div>
+	 </div>
+
+    <!-- Sections -->
+    <section id="home" class="active">
+        <div class="box">
+            <h2>Hi, I'm Tumelo!</h2>
+            <div class="intro-section">
+                <img src="myphoto.jpg" alt="Tumelo Jack Dibate">
+                <div class="intro-text">
+                    <p><b>Hello!</b> I’m Tumelo Jack Dibate, a passionate programmer who loves solving complex problems using efficient and optimized solutions.<br>I’m currently studying at the University of XYZ and always looking for opportunities to learn and grow in the field of software development.</p>
+
+		     <a id="download-cv" href="path/to/your/cv.pdf" download>Download My CV</a>
+                </div>
+            </div>
+        </div>
+           
+    </section>
+
+<section id="about" >
+<div class="box">
+	
+    <h2>About Me</h2>
+    <p><b>Informatics Student | Aspiring Data Scientist | System Admin | Java Dev | Web Dev | Database System Admin</b><br>
+
+I am a passionate and dedicated Senior Informatics student with a strong foundation in computer science, data analysis, and software development. Over the past few years, I've developed a broad range of technical skills and hands-on experience through various academic projects,  and self-initiated ventures.<br>
+I aim to create innovative solutions that make a positive impact in the world. In my free time, I enjoy developing websites, coding java, outdoor activities and exploring new hobbies.<br>
+
+Key Skills:
+<ul>
+<li>Programming Languages: Proficient in, HTML, JS Python, Java, and SQL. </li>
+<li>Data Analysis: Strong knowledge of data cleaning, manipulation, and visualization using tools like Pandas, NumPy, and Matplotlib.</li>
+<li>Database Management: Familiar with relational databases, including MySQL.</li>
+<li>Machine Learning: Hands-on experience in building machine learning models using libraries such as Scikit-learn and TensorFlow.</li>
+<li>Web Development: Exposure to full-stack development, including HTML, CSS, JavaScript.</li>
+<li>Cloud Computing: Working knowledge of cloud platforms like AWS and Google Cloud.</li>
+<li>Version Control: Experienced with Git and GitHub for collaborative coding.</li><br>
+Achievements:
+Datathon 2024: Led a team of five to participate in a university-wide hackathon, developing a machine learning-based recommendation system.
+Dean’s List: Consistently achieved academic excellence, earning a spot on the Dean’s List for all semesters to date.
+</ul><br>
+<b>Future Goals:</b>
+I am eager to deepen my expertise in data science, artificial intelligence, and cloud computing. My goal is to apply these skills to real-world challenges in industries like healthcare, finance, or technology.</p><br>
+	
+	<img src="tot2.jpg" alt="Tumelo Logo">
+</div>	
+</section>
+
+<section id="interests">
+    <h2>Interests & Hobbies</h2>
+    <ul>
+        <li>Coding with different languages</li>
+        <li>Outdoor activities</li>
+	<li>Music</li>
+	<li>Reading</li>
+    </ul>
+	<img src="tot1.png" alt="Tumelo Logo">
+</section>
+
+ <section id="skills">
+        <div class="box">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <div class="skill-name">Java</div>
+                    <div class="bar" style="width: 85%"><div class="bar-label">85%</div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Python</div>
+                    <div class="bar" style="width: 75%"><div class="bar-label">75%</div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="bar" style="width: 80%"><div class="bar-label">80%</div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">HTML/CSS</div>
+                    <div class="bar" style="width: 90%"><div class="bar-label">90%</div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">React</div>
+                    <div class="bar" style="width: 70%"><div class="bar-label">70%</div></div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">SQL</div>
+                    <div class="bar" style="width: 80%"><div class="bar-label">80%</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+	 <!-- Experience Section -->
+    <section id="exprience">
+        <div class="box">
+            <h2>Experience</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Company</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Software Developer Intern</td>
+                        <td>Company XYZ</td>
+                        <td>June 2023 - Aug 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Web Development Intern</td>
+                        <td>Company ABC</td>
+                        <td>Jan 2023 - May 2023</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+<section id="certificates">
+    <h2>Certificates</h2>
+    <div class="certificate-container">
+        <div class="certificate">
+            <img src="Hack2skill-Certificate.png" alt="Certificate 1">
+        </div>
+        <div class="certificate">
+            <img src="overview-of-ai.png" alt="Certificate 2">
+        </div>
+        <div class="certificate">
+            <img src="certificate3.jpg" alt="Certificate 3">
+        </div>
+    </div>
+</section>
+<!-- Education Section -->
+    <section id="education">
+        <div class="box">
+            <h2>Education</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Degree</th>
+                        <th>Institution</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bachelor's in Informatics</td>
+                        <td>University of XYZ</td>
+                        <td>2020 - Present</td>
+                    </tr>
+                    <tr>
+                        <td>High School Diploma</td>
+                        <td>ABC High School</td>
+                        <td>2018 - 2020</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+<section id="contact">
+   <div class="box">
+    <h2>Contact</h2>
+    <p>If you'd like to reach out, feel free to connect with me...<br>
+	<ul>
+        <li>Mobile: 067 968 2079</li>
+        <li>Email: dibatets@gmail</li>
+	<li>School Email: 217629055@tut4life.ac.za</li>
+        <li>Alt Email: stumzadibate@gmail.com</li>
+    </ul>
+	<div class="social-icons">
+	   <div class="box">
+        <a href="https://discord.com" target="_blank"><img src="discord.webp" alt="Discord"> Discord</a>
+        <a href="https://github.com" target="_blank"><img src="github.jpeg" alt="GitHub"> GitHub</a>
+        <a href="https://facebook.com" target="_blank"><img src="facebook.webp" alt="Facebook"> Facebook</a>
+        <a href="https://twitter.com" target="_blank"><img src="twitter.jpeg" alt="Twitter"> Twitter</a>
+        <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"> Instagram</a>
+        <a href="https://whatsapp.com" target="_blank"><img src="whatsapp.jpeg" alt="WhatsApp"> WhatsApp</a>
+        <a href="https://linkedin.com" target="_blank"><img src="linkedin.jpeg" alt="LinkedIn"> LinkedIn</a>
+    </div>
+	</div>
+	   </div>
+</p>
+</section>
+
+<section id="chat-box-section">
+    <h2>Chat with Me</h2>
+    <div class="chat-box">
+        <textarea placeholder="Type your message here..."></textarea>
+        <button onclick="sendMessage()">Send Message</button>
+    </div>
+</section>
+
+<footer>
+        <p>Connect with me:</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com" title="LinkedIn"><img src="linkedin.png" alt="LinkedIn"> LinkedIn</a>
+            <a href="https://github.com" title="GitHub"><img src="github.png" alt="GitHub"> GitHub</a>
+            <a href="mailto:tumelo.jack.dibate@gmail.com" title="Email"><img src="email.png" alt="Email"> Email</a>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle hamburger menu visibility
+        function toggleHamburgerMenu() {
+            var menu = document.getElementById("hamburger-menu");
+            menu.classList.toggle("active");
+        }
+
+        // Show sections based on button click
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll("section");
+            sections.forEach(function (section) {
+                section.classList.remove("active");
+            });
+            document.getElementById(sectionId).classList.add("active");
+        }
+
+        // Display current date and time
+        setInterval(function () {
+            var now = new Date();
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            document.getElementById('current-time').innerHTML = now.toLocaleDateString('en-US', options);
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
