@@ -372,6 +372,34 @@ footer {
             background: rgba(255, 255, 255, 0.4);
             padding: 10px;
         }
+/* Contact Section Styles */
+        #contact-us {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        #contact-us ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        #contact-us ul li {
+            margin-bottom: 10px;
+        }
+
+        .chat-form button {
+            padding: 12px 25px;
+            background-color: #FF8C00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+	
+        .chat-form button:hover {
+            background-color: #FF4500;
+        }
 
     </style>
 </head>
@@ -573,27 +601,26 @@ Dean’s List: Consistently achieved academic excellence, earning a spot on the 
             </table>
         </div>
     </section>
-<section id="contact">
-   <div class="box">
-    <h2>Contact</h2>
-    <p>If you'd like to reach out, feel free to connect with me...<br>
-	<ul>
-        <li>Mobile: 067 968 2079</li>
-        <li>Email: dibatets@gmail</li>
-	<li>School Email: 217629055@tut4life.ac.za</li>
-        <li>Alt Email: stumzadibate@gmail.com</li>
-    </ul>
-	</div>
-	   </div>
-</p>
-</section>
-
+<section id="contact-us" class="animated-fade-in">
+        <div class="box">
+            <h1>Contact Us</h1>
+            <ul>
+                <li><strong>Email:</strong> support@apscalculator.com</li>
+		<li><strong>Email:</strong> dibatets@gmail.com</li>
+                <li><strong>Mobile:</strong> +27 67 968 2079</li>
+                <li><strong>Follow Us: By clicking our social icons on too of the page</strong> 
+                
+            </ul>
+            <h1>Chat with Us</h1>
+            <div class="form-container">
+                <input type="text" placeholder="Your Name" required>
+                <input type="Your Message" placeholder=" Your Message" required>
+                <button type="submit">Send Message</button>
+            </div>
+        </div>
+    </section>
 <section id="chat-box-section">
-    <h2>Chat with Me</h2>
-    <div class="chat-box">
-        <textarea placeholder="Type your message here..."></textarea>
-        <button onclick="sendMessage()">Send Message</button>
-    </div>
+   
 </section>
 
 <footer>
