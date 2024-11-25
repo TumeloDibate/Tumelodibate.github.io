@@ -635,28 +635,36 @@ I aim to create innovative solutions that make a positive impact in the world. I
         </div>
     </section>
 <section id="contact">
+    <div class="box">
+        <h1>Contact Us</h1>
+        <ul>
+            <li><strong>Email:</strong> support@apscalculator.com</li>
+            <li><strong>Email:</strong> dibatets@gmail.com</li>
+            <li><strong>Mobile:</strong> +27 67 968 2079</li>
+            <li><strong>Follow Us</strong></li>
+            <p><i>By clicking our social icons at the top!</i></p>
+        </ul>
+
+        <h1>Chat with Us</h1>
         <div class="box">
-            <h1>Contact Us</h1>
-            <ul>
-                <li><strong>Email:</strong> support@apscalculator.com</li>
-		<li><strong>Email:</strong> dibatets@gmail.com</li>
-                <li><strong>Mobile:</strong> +27 67 968 2079</li>
-                <li><strong>Follow Us</strong> </li>
-		<p><i>By clicking our social icons at the top!</i></p>
-                
-            </ul>
-            <h1>Chat with Us</h1>
-		<div class = "box">
             <div class="form-container">
-                <input type="text" placeholder="Your Name" required>
-                <input type="Your Message" placeholder=" Your Message" required>
-                <button type="submit">Send Message</button>
+                <!-- Contact Form -->
+                <form id="contactForm" onsubmit="return validateForm()">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="text" id="message" placeholder="Your Message" required>
+                    <button type="submit">Send Message</button>
+                </form>
+
+                <!-- Thank You Message -->
+                <div id="thankYouMessage" class="thank-you-message" style="display:none;">
+                    Thank you for reaching out! Your message has been sent.
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="error-message" style="color: red;"></div>
             </div>
-	  </div>
         </div>
-    </section>
-<section id="chat-box-section">
-   
+    </div>
 </section>
 
 <footer>
@@ -687,6 +695,27 @@ I aim to create innovative solutions that make a positive impact in the world. I
             var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
             document.getElementById('current-time').innerHTML = now.toLocaleDateString('en-US', options);
         }, 1000);
+
+	     function validateForm() {
+        // Clear previous messages
+        document.getElementById('thankYouMessage').style.display = 'none';
+        document.getElementById('errorMessage').innerHTML = '';
+
+        // Get form field values
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
+
+        // Check if fields are empty
+        if (name === '' || message === '') {
+            document.getElementById('errorMessage').innerHTML = 'Please fill in both fields.';
+            return false;  // Prevent form submission
+        }
+
+        // If validation passes, display the thank you message and reset the form
+        document.getElementById('thankYouMessage').style.display = 'block';
+        document.getElementById('contactForm').reset();  // Reset form fields
+        return false;  // Prevent actual form submission (for this example, this is handled in the client side)
+    }
     </script>
 
 </body>
