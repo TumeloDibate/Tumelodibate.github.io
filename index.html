@@ -648,18 +648,16 @@ I aim to create innovative solutions that make a positive impact in the world. I
         <h1>Chat with Us</h1>
         <div class="box">
             <div class="form-container">
-                <!-- Google Form Link -->
-                <form action="https://docs.google.com/forms/d/e/1FAIpQLSeN8NvNHI9rJMlRqQ2gDTWLP6CPsAELHP0oOx_RvGQd-nXHVA/viewform?usp=sf_link" method="post">
-                    <input type="text" class="whsOnd zHQkBf" jsname="YPqjbf" autocomplete="off" tabindex="0" aria-labelledby="i8 i11" aria-describedby="i9 i10" aria-disabled="false" dir="auto" data-initial-dir="auto" data-initial-value="">
-                    <input type="email" class="whsOnd zHQkBf" jsname="YPqjbf" autocomplete="email" tabindex="0" aria-label="Your email" aria-disabled="false" required="" dir="auto" data-initial-dir="auto" data-initial-value="">
-                    <textarea class="KHxj8b tL9Q4c" jsname="YPqjbf" data-rows="1" tabindex="0" aria-label="Your answer" jscontroller="gZjhIf" jsaction="input:Lg5SV;ti6hGc:XMgOHc;rcuQ6b:WYd;" dir="auto" data-initial-dir="auto" data-initial-value="" aria-labelledby="i13 i16" aria-describedby="i14 i15" style="height: 24px;" aria-disabled="false">message</textarea>
-			
-			<button type="submit" <span class="NPEfkd RveJvd snByac"></span>>Send Message</button>
+                <!-- Contact Form -->
+                <form id="contactForm" onsubmit="return validateForm()">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="text" id="message" placeholder="Your Message" required>
+                    <button type="submit">Send Message</button>
                 </form>
 
                 <!-- Thank You Message -->
                 <div id="thankYouMessage" class="thank-you-message" style="display:none;">
-                    Thank you for reaching out!<br><b>Your message has been sent.</b>
+                    Thank you for reaching out! Your message has been sent.
                 </div>
 
                 <!-- Error Message -->
@@ -668,6 +666,7 @@ I aim to create innovative solutions that make a positive impact in the world. I
         </div>
     </div>
 </section>
+
 
 <footer>
         <p>&copy; 2024 My resume | All rights reserved | Connect with me <a href="mailto:dibate@gmail.com" title="Email">Email</a></p>
